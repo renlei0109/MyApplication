@@ -1,0 +1,39 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.renlei.myapplication.StartActivity">
+
+        <Button
+            android:id="@+id/view_num"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="ViewNumTest"/>
+        <Button
+            android:id="@+id/line_pie_chart_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="line_pie_chart_view"/>
+        <Button
+            android:id="@+id/line_chart_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="line_chart_activty"/>
+        <Button
+            android:id="@+id/test_titlebar_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_titlebar_activty"/>
+    </LinearLayout>
+
+</ScrollView>
