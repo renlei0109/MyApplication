@@ -38,6 +38,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
         <activity android:name=".titlebar.TestTitleBarActivity" />
         <activity android:name=".titlebar.TestTitleBarActivity2" />
+        <activity android:name=".ViewStubAndIncludeTestActivity" />
     </application>
 
 </manifest>

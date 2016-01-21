@@ -20,6 +20,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.line_pie_chart_view).setOnClickListener(this);
         findViewById(R.id.line_chart_activty).setOnClickListener(this);
         findViewById(R.id.test_titlebar_activty).setOnClickListener(this);
+        findViewById(R.id.test_viewstub1_activty).setOnClickListener(this);
+        findViewById(R.id.test_viewstub2_activty).setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +61,19 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             case R.id.test_titlebar_activty:
                 startActivity(new Intent(this,TestTitleBarActivity.class));
                 break;
+            case R.id.test_viewstub1_activty:
+                Intent intent = new Intent();
+                intent.putExtra("from",1);
+                intent.setClass(this,ViewStubAndIncludeTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.test_viewstub2_activty:
+                Intent intent2 = new Intent();
+                intent2.putExtra("from", 2);
+                intent2.setClass(this, ViewStubAndIncludeTestActivity.class);
+                startActivity(intent2);
+                break;
+
         }
     }
 

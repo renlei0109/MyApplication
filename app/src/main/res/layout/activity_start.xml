@@ -34,6 +34,18 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:text="test_titlebar_activty"/>
+        <Button
+            android:id="@+id/test_viewstub1_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_viewstub1_activty"/>
+        <Button
+            android:id="@+id/test_viewstub2_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_viewstub2_activty"/>
     </LinearLayout>
 
 </ScrollView>
