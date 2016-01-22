@@ -7,4 +7,5 @@
     <string name="title_activity_num_view">NumViewActivity</string>
     <string name="title_activity_line_chart">LineChartActivity</string>
     <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_surface_view_test">SurfaceViewTestActivity</string>
 </resources>

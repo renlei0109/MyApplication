@@ -22,6 +22,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_titlebar_activty).setOnClickListener(this);
         findViewById(R.id.test_viewstub1_activty).setOnClickListener(this);
         findViewById(R.id.test_viewstub2_activty).setOnClickListener(this);
+        findViewById(R.id.test_surfaceview_activty).setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +73,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 intent2.putExtra("from", 2);
                 intent2.setClass(this, ViewStubAndIncludeTestActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.test_surfaceview_activty:
+                startActivity(new Intent(this,SurfaceViewTestActivity.class));
                 break;
 
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.renlei.myapplication">
+    package="com.example.renlei.myapplication" >
 
     <uses-sdk android:minSdkVersion="8" />
 
@@ -12,13 +12,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".PiechartActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".StartActivity"
-            android:label="@string/title_activity_start">
+            android:label="@string/title_activity_start" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,14 +31,18 @@
             android:label="@string/title_activity_num_view" />
         <activity
             android:name=".chart.LineChartActivity"
-            android:label="@string/title_activity_line_chart"></activity>
+            android:label="@string/title_activity_line_chart" />
         <activity
             android:name=".titlebar.BaseActivity"
             android:label="@string/title_activity_base"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".titlebar.TestTitleBarActivity" />
         <activity android:name=".titlebar.TestTitleBarActivity2" />
         <activity android:name=".ViewStubAndIncludeTestActivity" />
+        <activity
+            android:name=".SurfaceViewTestActivity"
+            android:label="@string/title_activity_surface_view_test" >
+        </activity>
     </application>
 
 </manifest>

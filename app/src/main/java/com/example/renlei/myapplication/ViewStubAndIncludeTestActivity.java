@@ -47,7 +47,7 @@ public class ViewStubAndIncludeTestActivity extends BaseActivity{
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(ViewStubAndIncludeTestActivity.this,"click stub1",Toast.LENGTH_LONG);
-                    Log.d("ViewStubAndIncludeTestActivity","click stub1");
+                    Log.d("ViewStubAndIncludeTestActivit y","click stub1");
                 }
             });
         }else if (mFrom == 2){
