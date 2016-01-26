@@ -5,4 +5,12 @@
         <attr name="numViewTextColor" format="color"/>
         <attr name="numViewText" format="string"/>
     </declare-styleable>
+    <declare-styleable name="RoundProgressBar">
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="pb_bg_color" format="color"/>
+        <attr name="pb_width" format="dimension"/>
+        <attr name="pb_progress_color" format="color"/>
+        <attr name="pb_max_progress" format="integer"/>
+    </declare-styleable>
 </resources>

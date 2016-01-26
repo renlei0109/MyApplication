@@ -52,6 +52,12 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:text="test_surfaceview_activty"/>
+        <Button
+            android:id="@+id/test_round_progressbar_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_round_progressbar_activty"/>
     </LinearLayout>
 
 </ScrollView>

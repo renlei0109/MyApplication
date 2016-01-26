@@ -23,6 +23,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_viewstub1_activty).setOnClickListener(this);
         findViewById(R.id.test_viewstub2_activty).setOnClickListener(this);
         findViewById(R.id.test_surfaceview_activty).setOnClickListener(this);
+        findViewById(R.id.test_round_progressbar_activty).setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +77,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_surfaceview_activty:
                 startActivity(new Intent(this,SurfaceViewTestActivity.class));
+                break;
+            case R.id.test_round_progressbar_activty:
+                startActivity(new Intent(this,RoundProgressBarActivity.class));
                 break;
 
         }

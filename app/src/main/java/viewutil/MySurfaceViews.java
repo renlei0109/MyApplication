@@ -18,7 +18,7 @@ import android.view.SurfaceView;
 
 import com.example.renlei.myapplication.R;
 
-public class MySurfaceViews extends SurfaceView implements SurfaceHolder.Callback{
+public class MySurfaceViews extends SurfaceView implements SurfaceHolder.Callback {
     private Context mContext;
     private SurfaceHolder mSurfaceHolder;
     private Canvas mCanvas;
@@ -28,6 +28,7 @@ public class MySurfaceViews extends SurfaceView implements SurfaceHolder.Callbac
     private boolean isRuning = false;
     float radius = 20f;
     float x = 10f;
+
     public MySurfaceViews(Context context) {
         this(context, null);
     }
@@ -51,8 +52,8 @@ public class MySurfaceViews extends SurfaceView implements SurfaceHolder.Callbac
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while(isRuning){
-                    mText ++;
+                while (isRuning) {
+                    mText++;
                     Log.d("zyr", "running,mText:" + mText);
                     draw();
                     try {
@@ -66,28 +67,24 @@ public class MySurfaceViews extends SurfaceView implements SurfaceHolder.Callbac
     }
 
     private void draw() {
-        try
-        {
-            synchronized (mSurfaceHolder){
+        try {
+            synchronized (mSurfaceHolder) {
                 // 获得canvas
                 mCanvas = mSurfaceHolder.lockCanvas();
-                if (mCanvas != null)
-                {
+                if (mCanvas != null) {
                     // drawSomething..
                     /*mCanvas.drawColor(Color.BLACK);
                     mCanvas.drawText(mText+"",100,100,mPaint);*/
                     mCanvas.drawColor(Color.BLACK);//清屏操作，不然之前的图像会保留在屏幕上
-                    x+=30;
+                    x += 30;
                     mCanvas.translate(x, 200);
 //                    mCanvas.drawCircle(0, 0, radius, mPaint);
-                    mCanvas.drawText(mText+"",100,100,mPaint);
+                    mCanvas.drawText(mText + "", 100, 100, mPaint);
                 }
             }
 
-        } catch (Exception e)
-        {
-        } finally
-        {
+        } catch (Exception e) {
+        } finally {
             if (mCanvas != null)
                 mSurfaceHolder.unlockCanvasAndPost(mCanvas);
         }
