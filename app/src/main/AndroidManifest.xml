@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".PiechartActivity"
+            android:name=".PiechartActivityOld"
             android:label="@string/app_name" />
         <activity
             android:name=".StartActivity"
@@ -40,6 +40,7 @@
         <activity android:name=".titlebar.TestTitleBarActivity2" />
         <activity android:name=".ViewStubAndIncludeTestActivity" />
         <activity android:name=".RoundProgressBarActivity"/>
+        <activity android:name=".chart.PieChartActivity"/>
         <activity
             android:name=".SurfaceViewTestActivity"
             android:label="@string/title_activity_surface_view_test" >

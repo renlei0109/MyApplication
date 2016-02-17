@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.example.renlei.myapplication.chart.config.LineChartConfig;
+import com.example.renlei.myapplication.chart.config.PieChartConfig;
 import com.example.renlei.myapplication.chart.data.BaseLineChartData;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -159,7 +160,7 @@ public class ChartUtil {
         float quarterly1 = 14;
         float quarterly2 = 14;
         float quarterly3 = 34;
-        float quarterly4 = 38;
+        float quarterly4 = 100;
 
         yValues.add(new Entry(quarterly1, 0));
         yValues.add(new Entry(quarterly2, 1));
@@ -222,5 +223,67 @@ public class ChartUtil {
         }
     }
 
+    public void initPieChart(PieChart pieChart, final PieChartConfig config) {
+        pieChart.setHoleColorTransparent(config.mHoloChartTransparent);//设置中间部分透明
+        pieChart.setTransparentCircleRadius(config.mTransparentCircleRadiusPercent);// 半透明圈，数字越大，透明的部分越多,55表示从55%的半径出开始办透明
+        pieChart.setHoleRadius(config.mHoleRadiusPercent);  //半径 //设置中间透明的地方的大小，当为0的时候中间没有空白，就是实心圆，数字越大中间的空白部分越大，默认为50--renlei
 
+        pieChart.setDescription(config.mDescription);//饼状图的名称
+//        pieChart.setDescriptionPosition(100,100);//设置描述的位置，默认是getWidth() - mViewPortHandler.offsetRight() - 10,
+        //        getHeight() - mViewPortHandler.offsetBottom()-10
+
+        pieChart.setDrawCenterText(config.mDrawCenterText);  //饼状图中间可以添加文字
+        pieChart.setDrawHoleEnabled(config.mDrawHole);
+        pieChart.setRotationAngle(90); // 初始旋转角度
+
+        // draws the corresponding description value into the slice
+        // mChart.setDrawXValues(true);
+
+        // enable rotation of the chart by touch
+        pieChart.setRotationEnabled(config.mRotateEnabled); // 可以手动旋转
+
+        // display percentage values
+        pieChart.setUsePercentValues(config.mUsePercentValues);  //显示成百分比
+//        pieChart.setUnit(" €");
+//        pieChart.setDrawUnitsInChart(true);
+
+
+        // mChart.setTouchEnabled(false);
+
+//      mChart.setOnAnimationListener(this);
+
+        pieChart.setCenterText(config.mCenterText);  //饼状图中间的文字
+
+        //设置数据
+        pieChart.setData(config.basePieChartData.mPieData);
+        pieChart.setDrawSliceText(config.mDrawXLabels);
+
+        // undo all highlights
+      pieChart.highlightValues(null);//暂时未发现什么用--renlei
+//      pieChart.invalidate();
+
+        Legend mLegend = pieChart.getLegend();  //设置比例图
+        mLegend.setPosition(Legend.LegendPosition.LEFT_OF_CHART_CENTER);  //设置标示颜色（比例图）代表的位置，现在所处的位置--renlei
+        mLegend.setForm(Legend.LegendForm.SQUARE);  //设置比例图的形状，默认是方形，也可以换成CIRCLE圆形等--renlei
+        mLegend.setXEntrySpace(7f);//设置比例图两个之间的横向距离，当时竖着排列时没有效果该值
+        mLegend.setYEntrySpace(5f);//设置比例图两个之间的纵向向距离，当时横着排列时没有效果该值
+        mLegend.setEnabled(false);
+
+        pieChart.animateXY(1000, 1000);  //设置动画
+        // add a selection listener--选择某一部分时候的回调renlei
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                Log.d("renlei onvalueselected", "entry" + e.getVal() + "dataindex" + dataSetIndex + "Highlight" + h.toString());
+                //entry  Entry, xIndex: 0 val (sum): 4.0 dataindex0 Highlight Highlight, xIndex: 0, dataSetIndex: 0, stackIndex (only stacked barentry): -1
+                Log.d("onValueSelected","x :"+config.basePieChartData.mXValues.get(h.getXIndex())+" y :"+config.basePieChartData.mYValues.get(h.getXIndex()).getVal());
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+        // mChart.spin(2000, 0, 360);
+    }
 }

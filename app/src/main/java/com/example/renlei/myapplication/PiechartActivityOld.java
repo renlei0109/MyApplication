@@ -17,7 +17,7 @@ import com.github.mikephil.charting.data.PieData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PiechartActivity extends AppCompatActivity {
+public class PiechartActivityOld extends AppCompatActivity {
     private LineChart chart;
     private LineData lineData;
     private PieChart pieChart;

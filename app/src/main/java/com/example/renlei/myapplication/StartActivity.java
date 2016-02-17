@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.renlei.myapplication.chart.LineChartActivity;
+import com.example.renlei.myapplication.chart.PieChartActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +25,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_viewstub2_activty).setOnClickListener(this);
         findViewById(R.id.test_surfaceview_activty).setOnClickListener(this);
         findViewById(R.id.test_round_progressbar_activty).setOnClickListener(this);
+        findViewById(R.id.test_piechart_activity_activty).setOnClickListener(this);
     }
 
     @Override
@@ -55,7 +57,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, NumViewActivity.class));
                 break;
             case R.id.line_pie_chart_view:
-                startActivity(new Intent(this,PiechartActivity.class));
+                startActivity(new Intent(this,PiechartActivityOld.class));
                 break;
             case R.id.line_chart_activty:
                 startActivity(new Intent(this, LineChartActivity.class));
@@ -81,6 +83,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             case R.id.test_round_progressbar_activty:
                 startActivity(new Intent(this,RoundProgressBarActivity.class));
                 break;
+            case R.id.test_piechart_activity_activty:
+                startActivity(new Intent(this, PieChartActivity.class));
 
         }
     }
