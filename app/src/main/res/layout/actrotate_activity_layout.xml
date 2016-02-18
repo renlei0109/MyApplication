@@ -1,9 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/piechart_home_rl">
-
+    android:orientation="vertical">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDecrease"
+        android:text="btnDecrease"/>
     <LinearLayout
         android:id="@+id/piechart_select_item_content_ll"
         android:layout_width="match_parent"
@@ -28,15 +32,9 @@
             android:textColor="@android:color/holo_blue_light"
             android:textSize="26sp" />
     </LinearLayout>
-
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/piechart"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/piechart_select_item_content_ll"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp">
-
-    </com.github.mikephil.charting.charts.PieChart>
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/btnIncrease"
+        android:text="btnIncrease"/>
+</LinearLayout>

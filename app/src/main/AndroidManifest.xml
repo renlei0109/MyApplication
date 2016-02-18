@@ -41,6 +41,7 @@
         <activity android:name=".ViewStubAndIncludeTestActivity" />
         <activity android:name=".RoundProgressBarActivity"/>
         <activity android:name=".chart.PieChartActivity"/>
+        <activity android:name=".chart.ActRotate"/>
         <activity
             android:name=".SurfaceViewTestActivity"
             android:label="@string/title_activity_surface_view_test" >

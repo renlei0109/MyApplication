@@ -1,6 +1,7 @@
 package com.example.renlei.myapplication.chart.config;
 
 import com.example.renlei.myapplication.chart.data.BasePieChartData;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 /**
  * Created by renlei
@@ -26,6 +27,7 @@ public class PieChartConfig {
      * flag indicating if the x-labels should be drawn or not
      */
     public static boolean mDrawXLabels = false;//是否显示x轴的数据在图上
+    private OnChartValueSelectedListener onChartValueSelectedListener;
     public PieChartConfig(BasePieChartData basePieChartData) {
         if (basePieChartData != null) {
             this.basePieChartData = basePieChartData;
@@ -54,6 +56,11 @@ public class PieChartConfig {
      * if true, the white hole inside the chart will be drawn
      */
     public static boolean mDrawHole = true;
+    public void setOnChartValueSelectedListener(OnChartValueSelectedListener onChartValueSelectedListener){
+        this.onChartValueSelectedListener = onChartValueSelectedListener;
+    }
 
-
+    public OnChartValueSelectedListener getOnChartValueSelectedListener() {
+        return onChartValueSelectedListener;
+    }
 }

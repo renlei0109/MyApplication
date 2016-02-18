@@ -271,7 +271,7 @@ public class ChartUtil {
 
         pieChart.animateXY(1000, 1000);  //设置动画
         // add a selection listener--选择某一部分时候的回调renlei
-        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+        /*pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
                 Log.d("renlei onvalueselected", "entry" + e.getVal() + "dataindex" + dataSetIndex + "Highlight" + h.toString());
@@ -283,7 +283,11 @@ public class ChartUtil {
             public void onNothingSelected() {
 
             }
-        });
+        });*/
+        if (config.getOnChartValueSelectedListener()!=null){
+            pieChart.setOnChartValueSelectedListener(config.getOnChartValueSelectedListener());
+        }
+
         // mChart.spin(2000, 0, 360);
     }
 }

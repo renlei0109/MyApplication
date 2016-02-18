@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
@@ -26,6 +27,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_surfaceview_activty).setOnClickListener(this);
         findViewById(R.id.test_round_progressbar_activty).setOnClickListener(this);
         findViewById(R.id.test_piechart_activity_activty).setOnClickListener(this);
+        findViewById(R.id.test_actrotate_activty).setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +87,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_piechart_activity_activty:
                 startActivity(new Intent(this, PieChartActivity.class));
+                break;
+            case R.id.test_actrotate_activty:
+                startActivity(new Intent(this, ActRotate.class));
+                break;
 
         }
     }
