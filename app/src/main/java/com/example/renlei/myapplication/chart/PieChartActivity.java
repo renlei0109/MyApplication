@@ -1,15 +1,22 @@
 package com.example.renlei.myapplication.chart;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.example.renlei.myapplication.R;
 import com.example.renlei.myapplication.chart.config.PieChartConfig;
@@ -45,6 +52,11 @@ public class PieChartActivity extends BaseActivity implements RotateAnimation.In
     private LinearLayout mContentLL;
     private boolean hasMeasure = false;
     private RelativeLayout homeRL;
+
+    private TextView mHeadDescTV;
+    private ImageView mHeadIV;
+    private TextView mHeadNameTV;
+    private ImageView mHeadHideIV;
     /**
      * TextNumber是否允许显示最新的数字。
      */
@@ -59,6 +71,10 @@ public class PieChartActivity extends BaseActivity implements RotateAnimation.In
         mContentLL = (LinearLayout) findViewById(R.id.piechart_select_item_content_ll);
         mPercentContentTV = (TextView) findViewById(R.id.piechart_select_item_percent_content_tv);
         homeRL = (RelativeLayout) findViewById(R.id.piechart_home_rl);
+        mHeadDescTV = (TextView) findViewById(R.id.piechart_head_desc);
+        mHeadIV = (ImageView) findViewById(R.id.piechart_head_icon_iv);
+        mHeadNameTV = (TextView) findViewById(R.id.piechart_head_name);
+        mHeadHideIV = (ImageView)findViewById(R.id.piechart_headhide_icon_iv);
         getData();
         /*RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)pieChart.getLayoutParams();
         layoutParams.height = layoutParams.width;
@@ -69,15 +85,16 @@ public class PieChartActivity extends BaseActivity implements RotateAnimation.In
             @Override
             public boolean onPreDraw() {
 
-                if(hasMeasure == false){
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)pieChart.getLayoutParams();
+                if (hasMeasure == false) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) pieChart.getLayoutParams();
                     layoutParams.height = pieChart.getMeasuredWidth();
-                    Log.d("PieChartActivity onPreDraw","width"+pieChart.getMeasuredWidth());
+                    Log.d("PieChartActivity onPreDraw", "width" + pieChart.getMeasuredWidth());
                     hasMeasure = true;
                 }
                 return true;
             }
         });
+
 
     }
 
@@ -141,6 +158,46 @@ public class PieChartActivity extends BaseActivity implements RotateAnimation.In
             rotateAnim.setFillAfter(true);
             mContentLL.startAnimation(rotateAnim);
         }
+
+        /**名字的动画**/
+        AlphaAnimation nameAnimation = new AlphaAnimation(1.0f, 0f);
+        nameAnimation.setDuration(500);
+        mHeadNameTV.startAnimation(nameAnimation);
+        nameAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mHeadNameTV.setText("renlei,,,");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+
+
+        AnimationSet headAnimationSet = new AnimationSet(true);
+        AlphaAnimation headAlphaAnimation = new AlphaAnimation(1.0f,0f);
+        TranslateAnimation headTraslateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0,
+                Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1f);
+        headAnimationSet.addAnimation(headAlphaAnimation);
+        headAnimationSet.addAnimation(headTraslateAnimation);
+        headAnimationSet.setDuration(500);
+        mHeadIV.startAnimation(headAnimationSet);
+
+        AnimationSet headHideAnimationSet = new AnimationSet(true);
+        TranslateAnimation headHideTraslateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0,
+                Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1f);
+        headHideAnimationSet.addAnimation(headHideTraslateAnimation);
+        headHideAnimationSet.setDuration(500);
+        mHeadHideIV.startAnimation(headHideAnimationSet);
+
+
+
     }
 
     @Override
