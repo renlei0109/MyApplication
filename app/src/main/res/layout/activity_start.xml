@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.example.renlei.myapplication.StartActivity">
+        >
 
         <Button
             android:id="@+id/view_num"
@@ -51,7 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:text="test_surfaceview_activty"/>
+            android:text="test_surfaceview_activty"
+            fontPath="fonts/RobotoCondensed-Regular.ttf"
+            tools:ignore="MissingPrefix"/>
         <Button
             android:id="@+id/test_round_progressbar_activty"
             android:layout_width="match_parent"
@@ -69,7 +71,25 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:text="test_actrotate_activty"/>
+            android:text="test_actrotate_activty"
+            tools:ignore="MissingPrefix"
+            fontPath="fonts/SF_Light.otf"/>
+        <Button
+            android:id="@+id/test_camera_animation_activty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_camera_animation_activty"
+            tools:ignore="MissingPrefix"
+            android:textAllCaps="false"
+            fontPath="fonts/SF_Regular.otf"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test_camera_animation_activty"
+            tools:ignore="MissingPrefixa"
+            fontPath="fonts/SF_Regular.otf"/>
     </LinearLayout>
 
 </ScrollView>
