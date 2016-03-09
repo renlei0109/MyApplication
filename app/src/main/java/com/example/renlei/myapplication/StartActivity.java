@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
+import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +33,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_piechart_activity_activty).setOnClickListener(this);
         findViewById(R.id.test_actrotate_activty).setOnClickListener(this);
         findViewById(R.id.test_camera_animation_activty).setOnClickListener(this);
+        findViewById(R.id.test_camera_myserviceclient_activty).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -100,6 +102,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_camera_animation_activty:
                 startActivity(new Intent(this,CameraAnimationActivity.class));
+                break;
+            case R.id.test_camera_myserviceclient_activty:
+                startActivity(new Intent(this, MyServiceClientActivty.class));
                 break;
         }
     }
