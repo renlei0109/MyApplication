@@ -35,6 +35,9 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
     private static int RELEASE_TO_REFRESH = 2;
     private static int REFRESHING = 3;
     private static int REFRESH_COMPLETED = 4;
+
+    private boolean hasDownY = false;//判断是否记录刚开始按下去的downY值
+
     private int mCurrentState = PULL_TO_REFRESH;
     private Animation downAnimation;
     private Animation upAnimation;
@@ -85,11 +88,6 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
         progressAnimation.setFillAfter(false);
 
     }
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return super.onInterceptTouchEvent(ev);
-    }
-
     private float downY;
     private float moveY;
     private float moveDis;//移动的距离
@@ -100,10 +98,14 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 downY = ev.getY();
-
+                hasDownY = true;
+                Log.d("PullRefreshListView","downY"+downY);
                 break;
             case MotionEvent.ACTION_MOVE:
-
+                if (!hasDownY){
+                    downY = ev.getY();
+                    hasDownY = true;
+                }
                 moveDis = ev.getY() - downY;
 
                 paddingTop = -mHeadHeight + moveDis/2;//除以２相当于增大了滑动系数
@@ -126,6 +128,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
                         mCurrentState = PULL_TO_REFRESH;
                         refreshHeadView();
                     }
+                    Log.d("PullRefreshListView", "moveDis" + moveDis + "downY:" + downY + "mCurrentState" + mCurrentState + "ev.getY()" + ev.getY() + "paddingTop" + paddingTop + "mHeadHeight"+mHeadHeight);
                     if (paddingTop<100){///只允许头部往下多拉取100
                         mHeadView.setPadding(0, (int) paddingTop, 0, 0);
                     }

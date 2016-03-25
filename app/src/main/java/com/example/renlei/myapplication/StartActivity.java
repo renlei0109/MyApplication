@@ -40,6 +40,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_camera_animation_activty).setOnClickListener(this);
         findViewById(R.id.test_camera_myserviceclient_activty).setOnClickListener(this);
         findViewById(R.id.test_pull_listview_activty).setOnClickListener(this);
+        findViewById(R.id.test_pull_listview_activty2).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -150,6 +151,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_pull_listview_activty:
                 startActivity(new Intent(this, PullRefreshActivity.class));
+                break;
+            case R.id.test_pull_listview_activty2:
+                startActivity(new Intent(this, PullToRereshListViewActivity.class));
                 break;
         }
 

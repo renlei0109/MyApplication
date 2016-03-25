@@ -145,6 +145,7 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
                         refreshHeaderView();
                     }
                     // 下拉头布局
+                    if(paddingTop<100)
                     headerView.setPadding(0, paddingTop, 0, 0);
                     return true;
                 }
@@ -158,7 +159,12 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
                     // 进入到正在刷新中状态
                     currentState = REFRESHING;
                     refreshHeaderView();
-
+                    getHandler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            onRefreshComplete();
+                        }
+                    }, 2000);
                     if (mOnRefershListener != null) {
                         mOnRefershListener.onDownPullRefresh(); // 调用使用者的监听方法
                     }
@@ -172,7 +178,11 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
         }
         return super.onTouchEvent(ev);
     }
-
+    private void onRefreshComplete(){
+        currentState = DOWN_PULL_REFRESH;
+        headerView.setPadding(0,-headerViewHeight,0,0);
+        refreshHeaderView();
+    }
     /**
      * 根据currentState刷新头布局的状态
      */
