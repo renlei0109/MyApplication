@@ -102,7 +102,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
                 Log.d("PullRefreshListView","downY"+downY);
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (!hasDownY){
+                if (!hasDownY){///必须进行一个记录，否则外面convertview 的click事件会覆盖该touch的down事件，导致没有记录downy,而使得刷新会有跳跃
                     downY = ev.getY();
                     hasDownY = true;
                 }
