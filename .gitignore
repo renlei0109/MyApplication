@@ -1,7 +1,12 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
+# Created by .ignore support plugin (hsz.mobi)
+# Eclipse
+local.properties
+*.iml
+*.apk
+.idea/
+.gradle/
+/build/
+
+/app/build/
+dynamicgrid/build/
+pulltorefresh/build/
