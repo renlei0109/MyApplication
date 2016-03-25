@@ -49,7 +49,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
     public PullRefreshListView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-
+    private IPullRefreshListener mPullRefreshListener;
     public PullRefreshListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
@@ -110,12 +110,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
 
                 paddingTop = -mHeadHeight + moveDis/2;//除以２相当于增大了滑动系数
                 if (mFirstVisiblePos == 0&&mCurrentState!=REFRESHING&&-mHeadHeight<paddingTop) {
-                    /*if (paddingTop < 0 && mCurrentState == PULL_TO_REFRESH) {
-                        Log.d("PullRefreshListView","paddingTop < 0 && mCurrentState == PULL_TO_REFRESH");
-                        refreshHeadView();
-                        mCurrentState = PULL_TO_REFRESH;
-
-                    } else*/ if (paddingTop >= 0 && mCurrentState == PULL_TO_REFRESH) {
+                    if (paddingTop >= 0 && mCurrentState == PULL_TO_REFRESH) {
                         Log.d("PullRefreshListView", "paddingTop >= 0 && mCurrentState == PULL_TO_REFRESH");
                         mCurrentState = RELEASE_TO_REFRESH;
                         refreshHeadView();
@@ -135,51 +130,6 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
                     return true;
                 }
 
-                /*moveDis = (ev.getY() - downY)/2;
-                paddingTop = -mHeadHeight + moveDis;
-                if (mFirstVisiblePos == 0
-                        && -mHeadHeight < paddingTop) {
-
-                     if (mCurrentState == PULL_TO_REFRESH && paddingTop >= 0) {
-                        mCurrentState = RELEASE_TO_REFRESH;
-                        refreshHeadView();
-                    }else if (paddingTop < 0
-                             && mCurrentState == RELEASE_TO_REFRESH) { // 没有显示完全
-                         mCurrentState = PULL_TO_REFRESH;
-                         refreshHeadView();
-                     }
-//                    if (paddingTop<50){
-                        // 下拉头布局
-                        mHeadView.setPadding(0, (int) paddingTop, 0, 0);
-//                    }
-                    Log.d("PullRefreshListView", "moveDis" + moveDis + "downY:" + downY + "mCurrentState" + mCurrentState + "ev.getY()" + ev.getY() + "paddingTop" + paddingTop + "mHeadHeight"+mHeadHeight);
-
-                    return true;
-                }*/
-                /*int moveY = (int) ev.getY();
-                // 移动中的y - 按下的y = 间距.
-                int diff = (moveY - (int)downY) / 2;
-                // -头布局的高度 + 间距 = paddingTop
-                int paddingTop = -mHeadHeight + diff;
-                // 如果: -头布局的高度 > paddingTop的值 执行super.onTouchEvent(ev);
-                if (mFirstVisiblePos == 0
-                        && -mHeadHeight < paddingTop) {
-                    if (paddingTop > 0 && mCurrentState == PULL_TO_REFRESH) { // 完全显示了.
-                        mCurrentState = RELEASE_TO_REFRESH;
-                        refreshHeadView();
-                    } else if (paddingTop < 0
-                            && mCurrentState == RELEASE_TO_REFRESH) { // 没有显示完全
-                        mCurrentState = PULL_TO_REFRESH;
-                        refreshHeadView();
-                    }
-                    if (paddingTop<50){
-                        // 下拉头布局
-                        mHeadView.setPadding(0, paddingTop, 0, 0);
-                    }
-
-                    Log.d("PullRefreshListView", "moveDis" + moveDis + "downY:" + downY + "mCurrentState" + mCurrentState + "ev.getY()" + ev.getY() + "paddingTop" + paddingTop + "mHeadHeight"+mHeadHeight);
-                    return true;
-                }*/
                 break;
 
             case MotionEvent.ACTION_CANCEL:
@@ -189,12 +139,15 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
                     mHeadView.setPadding(0, 0, 0, 0);
                     //todo 刷新数据
                     refreshHeadView();
-                    getHandler().postDelayed(new Runnable() {
+                    /*getHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             onRefreshComplete();
                         }
-                    },2000);
+                    },2000);*/
+                    if (mPullRefreshListener!=null){
+                        mPullRefreshListener.onRefresh();
+                    }
                 }else if (mCurrentState == PULL_TO_REFRESH){
                     mCurrentState = PULL_TO_REFRESH;
                     mHeadView.setPadding(0,-mHeadHeight,0,0);
@@ -206,7 +159,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
     }
 
 
-    private void onRefreshComplete(){
+    public void onRefreshComplete(){
         mCurrentState = PULL_TO_REFRESH;
         mHeadView.setPadding(0,-mHeadHeight,0,0);
         refreshHeadView();
@@ -244,5 +197,16 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
         mFirstVisiblePos = firstVisibleItem;
     }
 
+    public IPullRefreshListener getPullRefreshListener() {
+        return mPullRefreshListener;
+    }
 
+    public void setPullRefreshListener(IPullRefreshListener mPullRefreshListener) {
+        this.mPullRefreshListener = mPullRefreshListener;
+    }
+
+    public interface IPullRefreshListener{
+        public void onRefresh();
+        public void onLoadMore();
+    }
 }

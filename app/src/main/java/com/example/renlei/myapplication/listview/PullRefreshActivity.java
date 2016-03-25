@@ -2,6 +2,7 @@ package com.example.renlei.myapplication.listview;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ import com.example.renlei.myapplication.titlebar.BaseActivity;
  * Time: 下午5:03
  * Email: lei.ren@renren-inc.com
  */
-public class PullRefreshActivity extends BaseActivity{
+public class PullRefreshActivity extends BaseActivity implements PullRefreshListView.IPullRefreshListener{
     private PullRefreshListView pullListview;
     private String[] adapterData;
 
@@ -33,6 +34,7 @@ public class PullRefreshActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pull_refresh);
         pullListview = (PullRefreshListView)findViewById(R.id.pull_listview);
+        pullListview.setPullRefreshListener(this);
         adapterData = new String[] { "Afghanistan", "Albania", "Algeria",
                 "American Samoa", "Andorra", "Angola", "Anguilla",
                 "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia",
@@ -130,5 +132,22 @@ public class PullRefreshActivity extends BaseActivity{
             TextView tv;
             Button btn;
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        Log.d("PullRefreshListView", "onRefresh");
+
+       new Handler().postDelayed(new Runnable() {
+           @Override
+           public void run() {
+               pullListview.onRefreshComplete();
+           }
+       },2000);
+    }
+
+    @Override
+    public void onLoadMore() {
+
     }
 }
