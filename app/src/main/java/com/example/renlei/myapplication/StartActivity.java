@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,14 +13,18 @@ import android.widget.Button;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
+import com.example.renlei.myapplication.listview.PullRefreshActivity;
+import com.example.renlei.myapplication.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
+    private String TAG = "StartActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_start);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/SF_Light.otf");
         findViewById(R.id.view_num).setOnClickListener(this);
@@ -34,9 +39,46 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_actrotate_activty).setOnClickListener(this);
         findViewById(R.id.test_camera_animation_activty).setOnClickListener(this);
         findViewById(R.id.test_camera_myserviceclient_activty).setOnClickListener(this);
+        findViewById(R.id.test_pull_listview_activty).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(TAG, "onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e(TAG, "onRestart");
     }
 
     @Override
@@ -106,7 +148,13 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             case R.id.test_camera_myserviceclient_activty:
                 startActivity(new Intent(this, MyServiceClientActivty.class));
                 break;
+            case R.id.test_pull_listview_activty:
+                startActivity(new Intent(this, PullRefreshActivity.class));
+                break;
         }
+
     }
+
+
 
 }
