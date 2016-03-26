@@ -19,6 +19,9 @@ import android.widget.Toast;
 import com.example.renlei.myapplication.R;
 import com.example.renlei.myapplication.titlebar.BaseActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by renlei
  * DATE: 16-1-26
@@ -27,26 +30,21 @@ import com.example.renlei.myapplication.titlebar.BaseActivity;
  */
 public class PullRefreshActivity extends BaseActivity implements PullRefreshListView.IPullRefreshListener{
     private PullRefreshListView pullListview;
-    private String[] adapterData;
-
+    private List<Integer>mDataList;
+    private int count = 0;
+    MYAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pull_refresh);
         pullListview = (PullRefreshListView)findViewById(R.id.pull_listview);
         pullListview.setPullRefreshListener(this);
-        adapterData = new String[] { "Afghanistan", "Albania", "Algeria",
-                "American Samoa", "Andorra", "Angola", "Anguilla",
-                "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia",
-                "Aruba", "Australia", "Austria", "Azerbaijan", "Bahrain",
-                "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize",
-                "Benin", "Bermuda", "Bhutan", "Bolivia",
-                "Bosnia and Herzegovina", "Botswana", "Bouvet Island" };
-        ArrayAdapter arrayAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_list_item_1,
-                adapterData);
 
-        MYAdapter adapter = new MYAdapter(adapterData,this);
+        mDataList = new ArrayList<>();
+        for (;count<20;count++){
+            mDataList.add(count);
+        }
+        adapter = new MYAdapter(mDataList,this);
 
         pullListview.setAdapter(adapter);
 //        pullListview.setAdapter(arrayAdapter);
@@ -65,26 +63,25 @@ public class PullRefreshActivity extends BaseActivity implements PullRefreshList
                 return true;//在处理长按时，注意的细节是把onItemLongClick返回设置为true，否则长按是会执行setOnItemClickListener。
             }
         });
-
-
     }
     private class MYAdapter extends BaseAdapter {
-        private String []data;
+        private List<Integer>data;
         private Context mContext;
 
-        public MYAdapter(String[] data, Context mContext) {
-            this.data = data;
+        public MYAdapter(List<Integer> data, Context mContext) {
+            this.data = new ArrayList<>();
+            this.data.addAll(data);
             this.mContext = mContext;
         }
 
         @Override
         public int getCount() {
-            return data.length;
+            return data.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return data[position];
+            return data.get(position);
         }
 
         @Override
@@ -105,7 +102,7 @@ public class PullRefreshActivity extends BaseActivity implements PullRefreshList
             }else {
                 holder = (Holder)convertView.getTag();
             }
-            holder.tv.setText(data[position]);
+            holder.tv.setText(data.get(position)+"");
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -128,6 +125,21 @@ public class PullRefreshActivity extends BaseActivity implements PullRefreshList
             return convertView;
         }
 
+        public void addData(List<Integer>data){
+            this.data.addAll(data);
+            notifyDataSetChanged();
+        }
+        public void setData(List<Integer>data){
+            if (this.data!=null){
+                this.data.clear();
+                this.data.addAll(data);
+            }else {
+                this.data = new ArrayList<>();
+                this.data.addAll(data);
+            }
+            notifyDataSetChanged();
+        }
+
         class Holder {
             TextView tv;
             Button btn;
@@ -142,12 +154,33 @@ public class PullRefreshActivity extends BaseActivity implements PullRefreshList
            @Override
            public void run() {
                pullListview.onRefreshComplete();
+               count = 0;
+               mDataList = new ArrayList<Integer>();
+               for (;count<20;count++){
+                   mDataList.add(count);
+               }
+               adapter.setData(mDataList);
            }
        },2000);
     }
 
     @Override
     public void onLoadMore() {
-
+        Log.d("PullRefreshListView", "onLoadMore");
+        List<Integer>list = new ArrayList<>();
+        for (int i = count;i<count+20;i++){
+            list.add(i);
+        }
+        count+=20;
+        if (count>=200){///模拟200以后就没有数据了
+            pullListview.hideLoadMore();
+        }
+        adapter.addData(list);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pullListview.onLoadMoreCompleted();
+            }
+        },1000);
     }
 }
