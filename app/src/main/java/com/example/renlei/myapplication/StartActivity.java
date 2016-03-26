@@ -13,8 +13,8 @@ import android.widget.Button;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
-import com.example.renlei.myapplication.listview.PullRefreshActivity;
-import com.example.renlei.myapplication.listview.PullToRereshListViewActivity;
+import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity;
+import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 

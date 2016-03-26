@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.renlei.myapplication.listview.PullRefreshListView
+    <com.example.renlei.myapplication.pullrefresh.listview.PullRefreshListView
         android:id="@+id/pull_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.example.renlei.myapplication.listview.PullRefreshListView>
+    </com.example.renlei.myapplication.pullrefresh.listview.PullRefreshListView>
 </LinearLayout>

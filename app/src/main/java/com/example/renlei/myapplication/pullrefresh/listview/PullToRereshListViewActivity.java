@@ -1,4 +1,4 @@
-package com.example.renlei.myapplication.listview;
+package com.example.renlei.myapplication.pullrefresh.listview;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.renlei.myapplication.R;
-
-import org.w3c.dom.Text;
 
 public class PullToRereshListViewActivity extends AppCompatActivity {
 

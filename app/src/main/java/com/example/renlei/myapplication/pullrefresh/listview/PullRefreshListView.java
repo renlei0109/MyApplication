@@ -1,4 +1,4 @@
-package com.example.renlei.myapplication.listview;
+package com.example.renlei.myapplication.pullrefresh.listview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,7 +12,6 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.renlei.myapplication.R;
 

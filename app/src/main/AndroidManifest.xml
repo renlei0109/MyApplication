@@ -57,9 +57,9 @@
         </service>
 
         <activity android:name=".service.MyServiceClientActivty" />
-        <activity android:name=".listview.PullRefreshActivity" />
+        <activity android:name=".pullrefresh.listview.PullRefreshActivity" />
         <activity
-            android:name=".listview.PullToRereshListViewActivity"
+            android:name=".pullrefresh.listview.PullToRereshListViewActivity"
             android:label="@string/title_activity_pull_to_reresh_list_view" >
         </activity>
     </application>

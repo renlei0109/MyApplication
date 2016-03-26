@@ -113,6 +113,7 @@
             tools:ignore="MissingPrefix"
             android:textAllCaps="false"
             fontPath="fonts/SF_Regular.otf"
+            android:visibility="gone"
             />
         <TextView
             android:layout_width="wrap_content"
