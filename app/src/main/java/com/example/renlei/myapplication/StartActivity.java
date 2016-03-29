@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
+import com.example.renlei.myapplication.pullrefresh.basepull.PullableTextViewActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
@@ -41,6 +42,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_camera_myserviceclient_activty).setOnClickListener(this);
         findViewById(R.id.test_pull_listview_activty).setOnClickListener(this);
         findViewById(R.id.test_pull_listview_activty2).setOnClickListener(this);
+        findViewById(R.id.test_pull_text_activty).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -154,6 +156,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_pull_listview_activty2:
                 startActivity(new Intent(this, PullToRereshListViewActivity.class));
+                break;
+            case R.id.test_pull_text_activty:
+                startActivity(new Intent(this, PullableTextViewActivity.class));
                 break;
         }
 

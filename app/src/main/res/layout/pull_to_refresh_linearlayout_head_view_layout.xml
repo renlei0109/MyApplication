@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_red_light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true">
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/footer_progress"
+            <ProgressBar
+                android:id="@+id/pull_ll_head_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:src="@drawable/headview_refresh" />
+                android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/footer_arrow"
+                android:id="@+id/pull_ll_head_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:minWidth="30dip"
-                android:src="@drawable/headview_arrow"
-                android:visibility="gone" />
+                android:src="@drawable/headview_arrow" />
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/footer_tv"
+            android:id="@+id/pull_ll_head_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

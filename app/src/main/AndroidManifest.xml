@@ -62,6 +62,7 @@
             android:name=".pullrefresh.listview.PullToRereshListViewActivity"
             android:label="@string/title_activity_pull_to_reresh_list_view" >
         </activity>
+        <activity android:name=".pullrefresh.basepull.PullableTextViewActivity"/>
     </application>
 
 </manifest>
