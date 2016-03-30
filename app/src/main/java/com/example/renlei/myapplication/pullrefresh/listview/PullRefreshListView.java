@@ -84,7 +84,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
         mHeadTV = (TextView) mHeadView.findViewById(R.id.head_tv);
         mHeadProgressBarIV = (ImageView) mHeadView.findViewById(R.id.head_progress);
         mHeadArrowIV = (ImageView) mHeadView.findViewById(R.id.head_arrow);
-        mHeadView.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+        mHeadView.measure(MeasureSpec.UNSPECIFIED,MeasureSpec.UNSPECIFIED);
         mHeadHeight = mHeadView.getMeasuredHeight();
         mHeadView.setPadding(0, -mHeadHeight, 0, 0);
         this.addHeaderView(mHeadView);
@@ -98,7 +98,7 @@ public class PullRefreshListView extends ListView implements AbsListView.OnScrol
         mFooterTV = (TextView) mFooterView.findViewById(R.id.footer_tv);
         mFooterProgressBarIV = (ImageView) mFooterView.findViewById(R.id.footer_progress);
 //        mFooterArrowIV = (ImageView) mFooterView.findViewById(R.id.footer_arrow);
-        mFooterView.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+//        mFooterView.measure(0,0);
         mFooterHeight = mFooterView.getMeasuredHeight();
         mFooterView.setPadding(0, 0, 0, -mFooterHeight);
         this.addFooterView(mFooterView);

@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="horizontal">
@@ -35,8 +35,9 @@
         <TextView
             android:id="@+id/pull_ll_head_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
+            android:gravity="center"
             android:text="下拉刷新．．．．" />
 
     </LinearLayout>

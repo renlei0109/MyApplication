@@ -6,6 +6,7 @@
     <include layout="@layout/pull_to_refresh_linearlayout_head_view_layout" />
     <!-- 支持所有实现Pullable接口的View -->
 
+
     <com.example.renlei.myapplication.pullrefresh.basepull.PullableTextView
         android:id="@+id/content_view"
         android:layout_width="match_parent"
