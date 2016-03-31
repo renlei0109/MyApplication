@@ -1,9 +1,11 @@
-package com.example.renlei.myapplication.pullrefresh.basepull;
+package com.example.renlei.myapplication.pullrefresh.basepull.pullableview;
 
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.example.renlei.myapplication.pullrefresh.basepull.Pullable;
 
 public class PullableTextView extends TextView implements Pullable
 {

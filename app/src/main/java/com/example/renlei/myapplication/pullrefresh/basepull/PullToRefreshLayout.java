@@ -164,7 +164,7 @@ public class PullToRefreshLayout extends FrameLayout {
                 downY = (int) ev.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (((Pullable) mRefreshView).canPullRefresh()) {
+                if (((Pullable) mRefreshView).canPullRefresh()&&(ev.getY()-downY)>0) {
                     Log.d(TAG, "onInterceptTouchEvent" + "MotionEvent.ACTION_MOVE");
                     return true;
                 }

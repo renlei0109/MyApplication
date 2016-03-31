@@ -6,18 +6,13 @@
     <include layout="@layout/pull_to_refresh_linearlayout_head_view_layout" />
     <!-- 支持所有实现Pullable接口的View -->
 
-
-    <com.example.renlei.myapplication.pullrefresh.basepull.pullableview.PullableTextView
+    <com.example.renlei.myapplication.pullrefresh.basepull.pullableview.PullableListView
         android:id="@+id/content_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ac8979"
-        android:gravity="center"
-        android:text="这是一个match_parent的TextView"
-        android:textColor="#ffffff"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        android:background="#ffffff"
+        android:divider="#000000"
+        android:dividerHeight="1dp" />
 
-    <!--<include layout="@layout/pull_to_refresh_footer_view_layout" />-->
 
 </com.example.renlei.myapplication.pullrefresh.basepull.PullToRefreshLayout>
