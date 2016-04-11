@@ -20,6 +20,7 @@ import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity
 import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivity;
+import com.example.renlei.myapplication.thread.ThreadPoolExecutorTestActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,6 +49,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_pull_text_activty).setOnClickListener(this);
         findViewById(R.id.test_ll_pull_listview_activty).setOnClickListener(this);
         findViewById(R.id.test_aidl_service).setOnClickListener(this);
+        findViewById(R.id.test_thread_pool_executor).setOnClickListener(this);
         findViewById(R.id.test_gc_activty).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
@@ -174,6 +176,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_aidl_service:
                 startActivity(new Intent(this, MyAIDLServiceTestActivity.class));
+                break;
+            case R.id.test_thread_pool_executor:
+                startActivity(new Intent(this, ThreadPoolExecutorTestActivity.class));
                 break;
         }
 

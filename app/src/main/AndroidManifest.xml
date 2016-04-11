@@ -71,6 +71,7 @@
         </activity>
         <service android:name=".service.aidltest.MyAIDLService"/>
         <activity android:name=".service.aidltest.MyAIDLServiceTestActivity"/>
+        <activity android:name=".thread.ThreadPoolExecutorTestActivity"/>
     </application>
 
 </manifest>
