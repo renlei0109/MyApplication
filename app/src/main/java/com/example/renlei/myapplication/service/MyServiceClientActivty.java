@@ -93,6 +93,9 @@ public class MyServiceClientActivty extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myserviceclient_layout);
+        Log.d("MyServiceClientActivty", "android.os.Process.myPid();"+android.os.Process.myPid());
+
+
         bindBtn = (Button) findViewById(R.id.bind_btn);
         unbindBtn = (Button) findViewById(R.id.unbind_btn);
         bindBtn.setOnClickListener(new View.OnClickListener() {

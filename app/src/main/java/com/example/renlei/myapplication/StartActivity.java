@@ -13,11 +13,13 @@ import android.widget.Button;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
+import com.example.renlei.myapplication.gcmemory.GCTest;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableListViewActivity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableTextViewActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
+import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,6 +47,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_pull_listview_activty2).setOnClickListener(this);
         findViewById(R.id.test_pull_text_activty).setOnClickListener(this);
         findViewById(R.id.test_ll_pull_listview_activty).setOnClickListener(this);
+        findViewById(R.id.test_aidl_service).setOnClickListener(this);
+        findViewById(R.id.test_gc_activty).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -164,6 +168,12 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_ll_pull_listview_activty:
                 startActivity(new Intent(this, PullableListViewActivity.class));
+                break;
+            case R.id.test_gc_activty:
+                startActivity(new Intent(this, GCTest.class));
+                break;
+            case R.id.test_aidl_service:
+                startActivity(new Intent(this, MyAIDLServiceTestActivity.class));
                 break;
         }
 

@@ -28,6 +28,8 @@ public class MyService extends Service{
         @Override
         public void handleMessage(Message msg) {
             Log.d("MyService", "ServiceHandler -> handleMessage");
+            Log.d("MyService", "android.os.Process.myPid();" + android.os.Process.myPid());
+
             if (msg.what == RECEIVE_MESSAGE_CODE){
                 Bundle bundle = msg.getData();
                 if (bundle!=null){
@@ -67,6 +69,8 @@ public class MyService extends Service{
     @Override
     public void onCreate() {
         Log.i("MyService", "MyService -> onCreate");
+        Log.d("MyService", "android.os.Process.myPid();" + android.os.Process.myPid());
+
         super.onCreate();
     }
 }

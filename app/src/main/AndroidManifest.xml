@@ -48,7 +48,7 @@
         <service
             android:name=".service.MyService"
             android:exported="true"
-            android:process="com.example.renlei.myapplication.service" >
+            android:process=":com.example.renlei.myapplication.service" >
             <intent-filter>
                 <action android:name="com.renlei.MyService" />
 
@@ -56,14 +56,21 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".service.MyServiceClientActivty" />
+        <activity android:name=".service.MyServiceClientActivty"
+            android:process=":MyServiceClientActivty"/>
         <activity android:name=".pullrefresh.listview.PullRefreshActivity" />
         <activity
             android:name=".pullrefresh.listview.PullToRereshListViewActivity"
             android:label="@string/title_activity_pull_to_reresh_list_view" >
         </activity>
-        <activity android:name=".pullrefresh.basepull.PullableTextViewActivity"/>
-        <activity android:name=".pullrefresh.basepull.PullableListViewActivity"/>
+        <activity android:name=".pullrefresh.basepull.PullableTextViewActivity" />
+        <activity android:name=".pullrefresh.basepull.PullableListViewActivity" />
+        <activity
+            android:name=".gcmemory.GCTest"
+            android:label="@string/title_activity_gctest" >
+        </activity>
+        <service android:name=".service.aidltest.MyAIDLService"/>
+        <activity android:name=".service.aidltest.MyAIDLServiceTestActivity"/>
     </application>
 
 </manifest>
