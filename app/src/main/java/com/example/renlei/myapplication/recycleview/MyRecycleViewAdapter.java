@@ -28,15 +28,15 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     private List<String> mDatas;
     Random random;
     OnItemClickLitener onItemClickLitener;
-    List<Integer>mHeights;
+    List<Integer> mHeights;
+
     public MyRecycleViewAdapter(Context mContext, List<String> mDatas) {
         this.mContext = mContext;
         this.mDatas = mDatas;
         random = new Random();
         mHeights = new ArrayList<Integer>();
-        for (int i = 0; i < mDatas.size(); i++)
-        {
-            mHeights.add( (int) (100 + Math.random() * 500));
+        for (int i = 0; i < mDatas.size(); i++) {
+            mHeights.add((int) (100 + Math.random() * 500));
         }
     }
 
@@ -50,7 +50,9 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {//赋值数据
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) holder.tv.getLayoutParams();
-        layoutParams.height = mHeights.get(position);
+        if (position < mHeights.size()){
+            layoutParams.height = mHeights.get(position);
+        }
         Log.d("onBindViewHolder", "layoutParams.height" + layoutParams.height);
         holder.tv.setLayoutParams(layoutParams);
         holder.tv.setText(mDatas.get(position));
@@ -114,4 +116,17 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
         void onItemLongClick(View view, int position);
     }
+
+    public void addData(int position) {
+        mDatas.add(position, "add" + position);
+        notifyItemInserted(position);
+        notifyItemRangeChanged(position, mDatas.size()-1);
+    }
+
+    public void removeData(int position) {
+        mDatas.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, mDatas.size()-1);
+    }
+
 }
