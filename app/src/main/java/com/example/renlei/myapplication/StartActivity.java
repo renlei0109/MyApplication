@@ -53,6 +53,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_thread_pool_executor).setOnClickListener(this);
         findViewById(R.id.test_gc_activty).setOnClickListener(this);
         findViewById(R.id.test_recycleview_activity).setOnClickListener(this);
+        findViewById(R.id.test_saved_instance_state).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -184,6 +185,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_recycleview_activity:
                 startActivity(new Intent(this, TestRecycleViewActivty.class));
+                break;
+            case R.id.test_saved_instance_state:
+                startActivity(new Intent(this,TestSaveInstanceStateActivity.class));
                 break;
         }
 

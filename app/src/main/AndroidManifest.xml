@@ -73,6 +73,7 @@
         <activity android:name=".service.aidltest.MyAIDLServiceTestActivity"/>
         <activity android:name=".thread.ThreadPoolExecutorTestActivity"/>
         <activity android:name=".recycleview.TestRecycleViewActivty"/>
+        <activity android:name=".TestSaveInstanceStateActivity"/>
     </application>
 
 </manifest>

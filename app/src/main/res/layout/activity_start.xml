@@ -165,6 +165,36 @@
             fontPath="fonts/SF_Regular.otf"
             />
         <Button
+            android:id="@+id/test_saved_instance_state"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_saved_instance_state"
+            tools:ignore="MissingPrefix"
+            android:textAllCaps="false"
+            fontPath="fonts/SF_Regular.otf"
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <Button
             android:id="@+id/test_pull_listview_activty2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
