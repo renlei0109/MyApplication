@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.renlei.myapplication.animation.AnimationMainActivity;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
@@ -54,6 +55,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_gc_activty).setOnClickListener(this);
         findViewById(R.id.test_recycleview_activity).setOnClickListener(this);
         findViewById(R.id.test_saved_instance_state).setOnClickListener(this);
+        findViewById(R.id.test_animation_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -188,6 +190,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_saved_instance_state:
                 startActivity(new Intent(this,TestSaveInstanceStateActivity.class));
+                break;
+            case R.id.test_animation_activity:
+                startActivity(new Intent(this, AnimationMainActivity.class));
                 break;
         }
 
