@@ -42,7 +42,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.list_item_layout, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.list_text_item_layout, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }
@@ -56,22 +56,6 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         Log.d("onBindViewHolder", "layoutParams.height" + layoutParams.height);
         holder.tv.setLayoutParams(layoutParams);
         holder.tv.setText(mDatas.get(position));
-        /*if (onItemClickLitener!=null){
-            holder.tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemClickLitener.onItemClick(holder.tv,position);
-                }
-            });
-
-            holder.btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemClickLitener.onItemClick(holder.btn,position);
-                }
-            });
-        }*/
-
         holder.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
