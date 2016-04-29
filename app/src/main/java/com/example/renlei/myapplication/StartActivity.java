@@ -15,6 +15,7 @@ import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
 import com.example.renlei.myapplication.gcmemory.GCTest;
+import com.example.renlei.myapplication.handler.TestHandlerActvity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableListViewActivity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableTextViewActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity;
@@ -56,6 +57,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_recycleview_activity).setOnClickListener(this);
         findViewById(R.id.test_saved_instance_state).setOnClickListener(this);
         findViewById(R.id.test_animation_activity).setOnClickListener(this);
+        findViewById(R.id.test_handler_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -193,6 +195,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_animation_activity:
                 startActivity(new Intent(this, AnimationMainActivity.class));
+                break;
+            case R.id.test_handler_activity:
+                startActivity(new Intent(this, TestHandlerActvity.class));
                 break;
         }
 
