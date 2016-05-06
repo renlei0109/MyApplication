@@ -26,6 +26,8 @@ import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivi
 import com.example.renlei.myapplication.thread.ThreadPoolExecutorTestActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
+import viewutil.RoundImageView;
+
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
     private String TAG = "StartActivity";
@@ -58,6 +60,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_saved_instance_state).setOnClickListener(this);
         findViewById(R.id.test_animation_activity).setOnClickListener(this);
         findViewById(R.id.test_handler_activity).setOnClickListener(this);
+        findViewById(R.id.test_roundimageview_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -198,6 +201,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_handler_activity:
                 startActivity(new Intent(this, TestHandlerActvity.class));
+                break;
+            case R.id.test_roundimageview_activity:
+                startActivity(new Intent(this, RoumdImageActivity.class));
                 break;
         }
 

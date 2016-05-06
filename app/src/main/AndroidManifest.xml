@@ -77,6 +77,7 @@
         <activity android:name=".animation.AnimationMainActivity"/>
         <activity android:name=".animation.ValueAnimationActivity"/>
         <activity android:name=".handler.TestHandlerActvity"/>
+        <activity android:name=".RoumdImageActivity"/>
     </application>
 
 </manifest>
