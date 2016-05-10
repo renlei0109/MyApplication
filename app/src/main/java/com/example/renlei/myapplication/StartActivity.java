@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.renlei.myapplication.animation.AnimationMainActivity;
+import com.example.renlei.myapplication.anr.TestANRActivity;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
@@ -61,6 +62,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_animation_activity).setOnClickListener(this);
         findViewById(R.id.test_handler_activity).setOnClickListener(this);
         findViewById(R.id.test_roundimageview_activity).setOnClickListener(this);
+        findViewById(R.id.test_anr_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -204,6 +206,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_roundimageview_activity:
                 startActivity(new Intent(this, RoumdImageActivity.class));
+                break;
+            case R.id.test_anr_activity:
+                startActivity(new Intent(this, TestANRActivity.class));
                 break;
         }
 
