@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/save_in_jsoncache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="save_in_jsoncache" />
+
+        <Button
+            android:id="@+id/get_from_jsoncache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="get_from_jsoncache" />
+
+
+        <Button
+            android:id="@+id/save_in_db"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="save_in_db" />
+
+        <Button
+            android:id="@+id/get_from_db"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="get_from_db" />
+        <TextView
+            android:id="@+id/result_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

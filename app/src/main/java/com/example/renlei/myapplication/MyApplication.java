@@ -1,6 +1,7 @@
 package com.example.renlei.myapplication;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 import com.squareup.leakcanary.LeakCanary;
@@ -14,6 +15,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  * Email: lei.ren@renren-inc.com
  */
 public class MyApplication extends Application{
+    private static Context mContext;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -28,6 +30,10 @@ public class MyApplication extends Application{
 
 
     public MyApplication() {
+        this.mContext = this;
+    }
+    public static Context getContext(){
+        return mContext;
     }
 
 }
