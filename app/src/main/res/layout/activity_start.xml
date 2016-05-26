@@ -224,7 +224,16 @@
             android:textAllCaps="false"
             fontPath="fonts/SF_Regular.otf"
             />
-
+        <Button
+            android:id="@+id/test_listviewempty_activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_listviewempty_activity"
+            tools:ignore="MissingPrefix"
+            android:textAllCaps="false"
+            fontPath="fonts/SF_Regular.otf"
+            />
 
 
 
@@ -254,12 +263,7 @@
             fontPath="fonts/SF_Regular.otf"
             android:visibility="gone"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test_camera_animation_activty"
-            tools:ignore="MissingPrefixa"
-            fontPath="fonts/SF_Regular.otf"/>
+
     </LinearLayout>
 
 </ScrollView>

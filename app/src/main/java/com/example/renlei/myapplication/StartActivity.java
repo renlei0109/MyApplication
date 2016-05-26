@@ -22,6 +22,7 @@ import com.example.renlei.myapplication.pullrefresh.basepull.PullableListViewAct
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableTextViewActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
+import com.example.renlei.myapplication.pullrefresh.listview.TestListVIewEmptyView;
 import com.example.renlei.myapplication.recycleview.TestRecycleViewActivty;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivity;
@@ -65,6 +66,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_roundimageview_activity).setOnClickListener(this);
         findViewById(R.id.test_anr_activity).setOnClickListener(this);
         findViewById(R.id.test_cache_activity).setOnClickListener(this);
+        findViewById(R.id.test_listviewempty_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -214,6 +216,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_cache_activity:
                 startActivity(new Intent(this, TestCacheActivity.class));
+                break;
+            case R.id.test_listviewempty_activity:
+                startActivity(new Intent(this, TestListVIewEmptyView.class));
                 break;
         }
 
