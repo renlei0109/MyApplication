@@ -82,6 +82,9 @@
         <activity android:name=".Cache.TestCacheActivity"/>
         <activity android:name=".pullrefresh.listview.TestListVIewEmptyView"/>
         <activity android:name=".popupwindow.PopupWindowMainActivity"/>
+        <activity android:name=".baseandroid.BaseAndroidActivity"/>
+        <activity android:name=".baseandroid.ChapterOneActivity"/>
+        <activity android:name=".baseandroid.StorageActivity"/>
     </application>
 
 </manifest>

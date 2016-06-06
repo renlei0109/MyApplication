@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.renlei.myapplication.Cache.TestCacheActivity;
 import com.example.renlei.myapplication.animation.AnimationMainActivity;
 import com.example.renlei.myapplication.anr.TestANRActivity;
+import com.example.renlei.myapplication.baseandroid.BaseAndroidActivity;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
@@ -69,6 +70,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_cache_activity).setOnClickListener(this);
         findViewById(R.id.test_listviewempty_activity).setOnClickListener(this);
         findViewById(R.id.test_popupwindow_activity).setOnClickListener(this);
+        findViewById(R.id.test_base_android_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -224,6 +226,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_popupwindow_activity:
                 startActivity(new Intent(this, PopupWindowMainActivity.class));
+                break;
+            case R.id.test_base_android_activity:
+                startActivity(new Intent(this, BaseAndroidActivity.class));
                 break;
         }
 
