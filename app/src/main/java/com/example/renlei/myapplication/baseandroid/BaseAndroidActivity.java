@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.renlei.myapplication.R;
+import com.example.renlei.myapplication.baseandroid.chapterone.ChapterOneActivity;
+import com.example.renlei.myapplication.baseandroid.chaptertwo.ChapterTwoActivity;
 import com.example.renlei.myapplication.titlebar.BaseActivity;
 
 /**
@@ -18,6 +20,7 @@ public class BaseAndroidActivity extends BaseActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_android);
         findViewById(R.id.test_chapter_one_activity).setOnClickListener(this);
+        findViewById(R.id.test_chapter_two_activity).setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +28,9 @@ public class BaseAndroidActivity extends BaseActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.test_chapter_one_activity:
                 startActivity(new Intent(this,ChapterOneActivity.class));
+                break;
+            case R.id.test_chapter_two_activity:
+                startActivity(new Intent(this, ChapterTwoActivity.class));
                 break;
         }
     }

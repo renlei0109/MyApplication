@@ -83,8 +83,10 @@
         <activity android:name=".pullrefresh.listview.TestListVIewEmptyView"/>
         <activity android:name=".popupwindow.PopupWindowMainActivity"/>
         <activity android:name=".baseandroid.BaseAndroidActivity"/>
-        <activity android:name=".baseandroid.ChapterOneActivity"/>
-        <activity android:name=".baseandroid.StorageActivity"/>
+        <activity android:name=".baseandroid.chapterone.ChapterOneActivity"/>
+        <activity android:name=".baseandroid.chapterone.StorageActivity"/>
+        <activity android:name=".baseandroid.chaptertwo.ChapterTwoActivity"/>
+        <activity android:name=".baseandroid.chaptertwo.ShareFileActivity"/>
     </application>
 
 </manifest>
