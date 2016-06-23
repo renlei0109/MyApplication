@@ -18,6 +18,7 @@ import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
 import com.example.renlei.myapplication.chart.PieChartActivity;
 import com.example.renlei.myapplication.gcmemory.GCTest;
+import com.example.renlei.myapplication.handler.TestAsyncTask;
 import com.example.renlei.myapplication.handler.TestHandlerActvity;
 import com.example.renlei.myapplication.popupwindow.PopupWindowMainActivity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableListViewActivity;
@@ -71,6 +72,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_listviewempty_activity).setOnClickListener(this);
         findViewById(R.id.test_popupwindow_activity).setOnClickListener(this);
         findViewById(R.id.test_base_android_activity).setOnClickListener(this);
+        findViewById(R.id.test_asynctask_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -229,6 +231,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_base_android_activity:
                 startActivity(new Intent(this, BaseAndroidActivity.class));
+                break;
+            case R.id.test_asynctask_activity:
+                startActivity(new Intent(this, TestAsyncTask.class));
                 break;
         }
 
