@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import com.squareup.leakcanary.LeakCanary;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -25,7 +24,7 @@ public class MyApplication extends Application{
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
     }
 
 

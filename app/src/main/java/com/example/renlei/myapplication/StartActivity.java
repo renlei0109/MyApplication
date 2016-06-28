@@ -20,6 +20,7 @@ import com.example.renlei.myapplication.chart.PieChartActivity;
 import com.example.renlei.myapplication.gcmemory.GCTest;
 import com.example.renlei.myapplication.handler.TestAsyncTask;
 import com.example.renlei.myapplication.handler.TestHandlerActvity;
+import com.example.renlei.myapplication.imageload.TestImageLoadActivity;
 import com.example.renlei.myapplication.popupwindow.PopupWindowMainActivity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableListViewActivity;
 import com.example.renlei.myapplication.pullrefresh.basepull.PullableTextViewActivity;
@@ -73,6 +74,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_popupwindow_activity).setOnClickListener(this);
         findViewById(R.id.test_base_android_activity).setOnClickListener(this);
         findViewById(R.id.test_asynctask_activity).setOnClickListener(this);
+        findViewById(R.id.test_imageload_activity).setOnClickListener(this);
         button = (Button)findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -224,6 +226,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, TestCacheActivity.class));
                 break;
             case R.id.test_listviewempty_activity:
+
                 startActivity(new Intent(this, TestListVIewEmptyView.class));
                 break;
             case R.id.test_popupwindow_activity:
@@ -234,6 +237,12 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_asynctask_activity:
                 startActivity(new Intent(this, TestAsyncTask.class));
+                break;
+            case R.id.test_imageload_activity:
+                Intent intent1 = new Intent(this, TestImageLoadActivity.class);
+                if(intent1.resolveActivity(getPackageManager())!=null){
+                    startActivity(intent1);
+                }
                 break;
         }
 

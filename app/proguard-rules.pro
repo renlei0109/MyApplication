@@ -15,3 +15,17 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-useuniqueclassmembernames
+-keep public class com.example.renlei.myapplication.StartActivity
+-keep public class butterknife.**
+-keep public class com.squareup.picasso.**
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-dontwarn com.squareup.picasso.**
