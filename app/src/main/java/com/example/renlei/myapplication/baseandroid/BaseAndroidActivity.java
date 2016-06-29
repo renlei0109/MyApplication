@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.renlei.myapplication.R;
+import com.example.renlei.myapplication.baseandroid.chapterfour.TestBItmapActivity;
 import com.example.renlei.myapplication.baseandroid.chapterone.ChapterOneActivity;
 import com.example.renlei.myapplication.baseandroid.chapterthree.ChapterThreeActivity;
 import com.example.renlei.myapplication.baseandroid.chaptertwo.ChapterTwoActivity;
@@ -23,6 +24,7 @@ public class BaseAndroidActivity extends BaseActivity implements View.OnClickLis
         findViewById(R.id.test_chapter_one_activity).setOnClickListener(this);
         findViewById(R.id.test_chapter_two_activity).setOnClickListener(this);
         findViewById(R.id.test_chapter_three_activity).setOnClickListener(this);
+        findViewById(R.id.test_bitmap_activity).setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +39,9 @@ public class BaseAndroidActivity extends BaseActivity implements View.OnClickLis
             case R.id.test_chapter_three_activity:
                 startActivity(new Intent(this, ChapterThreeActivity.class));
                 break;
+            case R.id.test_bitmap_activity:
+            startActivity(new Intent(this, TestBItmapActivity.class));
+            break;
         }
     }
 }

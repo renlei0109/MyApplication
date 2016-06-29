@@ -94,6 +94,7 @@
         <activity android:name=".imageload.TestPicassoActivity"/>
         <activity android:name=".baseandroid.chapterthree.ChapterThreeActivity"/>
         <activity android:name=".baseandroid.chapterthree.VideoViewActivity"/>
+        <activity android:name=".baseandroid.chapterfour.TestBItmapActivity"/>
     </application>
 
 </manifest>
