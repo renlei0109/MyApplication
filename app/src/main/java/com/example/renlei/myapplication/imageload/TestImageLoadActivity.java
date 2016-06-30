@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.renlei.myapplication.R;
+import com.example.renlei.myapplication.imageload.myimageload.TestMyImageLoadActivity;
 import com.example.renlei.myapplication.titlebar.BaseActivity;
 
 /**
@@ -19,6 +20,7 @@ public class TestImageLoadActivity extends BaseActivity implements View.OnClickL
         setContentView(R.layout.activity_image_load_layout);
         findViewById(R.id.test_glide_btn).setOnClickListener(this);
         findViewById(R.id.test_picasso_btn).setOnClickListener(this);
+        findViewById(R.id.test_myimageload_btn).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +31,9 @@ public class TestImageLoadActivity extends BaseActivity implements View.OnClickL
                 break;
             case R.id.test_picasso_btn:
                 startActivity(new Intent(this,TestPicassoActivity.class));
+                break;
+            case R.id.test_myimageload_btn:
+                startActivity(new Intent(this, TestMyImageLoadActivity.class));
                 break;
 
         }
