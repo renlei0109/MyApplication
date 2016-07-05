@@ -6,4 +6,5 @@
     <dimen name="titlebar_image_btn_width">55dp</dimen>
     <dimen name="stub1_height">410dp</dimen>
     <dimen name="stub2_height">210dp</dimen>
+    <dimen name="choose_email_dialog_item_height">40dp</dimen>
 </resources>

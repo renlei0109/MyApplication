@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import com.example.renlei.myapplication.Cache.TestCacheActivity;
@@ -33,17 +34,22 @@ import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivi
 import com.example.renlei.myapplication.thread.ThreadPoolExecutorTestActivity;
 import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import viewutil.ChooseEmailDialog;
 import viewutil.RoundImageView;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
     private String TAG = "StartActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_start);
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/SF_Light.otf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/SF_Light.otf");
         findViewById(R.id.view_num).setOnClickListener(this);
         findViewById(R.id.line_pie_chart_view).setOnClickListener(this);
         findViewById(R.id.line_chart_activty).setOnClickListener(this);
@@ -75,7 +81,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_base_android_activity).setOnClickListener(this);
         findViewById(R.id.test_asynctask_activity).setOnClickListener(this);
         findViewById(R.id.test_imageload_activity).setOnClickListener(this);
-        button = (Button)findViewById(R.id.test_round_progressbar_activty);
+        findViewById(R.id.test_dialog).setOnClickListener(this);
+        button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
     }
@@ -145,18 +152,18 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, NumViewActivity.class));
                 break;
             case R.id.line_pie_chart_view:
-                startActivity(new Intent(this,PiechartActivityOld.class));
+                startActivity(new Intent(this, PiechartActivityOld.class));
                 break;
             case R.id.line_chart_activty:
                 startActivity(new Intent(this, LineChartActivity.class));
                 break;
             case R.id.test_titlebar_activty:
-                startActivity(new Intent(this,TestTitleBarActivity.class));
+                startActivity(new Intent(this, TestTitleBarActivity.class));
                 break;
             case R.id.test_viewstub1_activty:
                 Intent intent = new Intent();
-                intent.putExtra("from",1);
-                intent.setClass(this,ViewStubAndIncludeTestActivity.class);
+                intent.putExtra("from", 1);
+                intent.setClass(this, ViewStubAndIncludeTestActivity.class);
                 startActivity(intent);
                 break;
             case R.id.test_viewstub2_activty:
@@ -166,10 +173,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent2);
                 break;
             case R.id.test_surfaceview_activty:
-                startActivity(new Intent(this,SurfaceViewTestActivity.class));
+                startActivity(new Intent(this, SurfaceViewTestActivity.class));
                 break;
             case R.id.test_round_progressbar_activty:
-                startActivity(new Intent(this,RoundProgressBarActivity.class));
+                startActivity(new Intent(this, RoundProgressBarActivity.class));
                 break;
             case R.id.test_piechart_activity_activty:
                 startActivity(new Intent(this, PieChartActivity.class));
@@ -178,7 +185,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, ActRotate.class));
                 break;
             case R.id.test_camera_animation_activty:
-                startActivity(new Intent(this,CameraAnimationActivity.class));
+                startActivity(new Intent(this, CameraAnimationActivity.class));
                 break;
             case R.id.test_camera_myserviceclient_activty:
                 startActivity(new Intent(this, MyServiceClientActivty.class));
@@ -208,7 +215,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, TestRecycleViewActivty.class));
                 break;
             case R.id.test_saved_instance_state:
-                startActivity(new Intent(this,TestSaveInstanceStateActivity.class));
+                startActivity(new Intent(this, TestSaveInstanceStateActivity.class));
                 break;
             case R.id.test_animation_activity:
                 startActivity(new Intent(this, AnimationMainActivity.class));
@@ -240,14 +247,34 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_imageload_activity:
                 Intent intent1 = new Intent(this, TestImageLoadActivity.class);
-                if(intent1.resolveActivity(getPackageManager())!=null){
+                if (intent1.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent1);
                 }
+                break;
+            case R.id.test_dialog:
+                onDialogclick();
                 break;
         }
 
     }
 
-
+    private void onDialogclick() {
+        ChooseEmailDialog.Builder builder = new ChooseEmailDialog.Builder(this);
+        List<ChooseEmailDialog.EmailDialogInfo> infos = new ArrayList<>();
+        ChooseEmailDialog.EmailDialogInfo info = new ChooseEmailDialog.EmailDialogInfo();
+        info.description = "Use Gmail";
+        infos.add(info);
+        ChooseEmailDialog.EmailDialogInfo info2 = new ChooseEmailDialog.EmailDialogInfo();
+        info2.description = "Use Chime Mail";
+        info2.emailAdd = "renlei@chime.com";
+        infos.add(info2);
+        builder.setTitle("renlei").setInfos(infos, new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("renlei","pos"+position);
+            }
+        });
+        builder.create().show();
+    }
 
 }

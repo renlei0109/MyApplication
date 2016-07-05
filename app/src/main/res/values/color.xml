@@ -2,4 +2,7 @@
 <resources>
 
     <color name="titlebar_bg_color">#4f9bf0</color>
+    <!-- 皮肤 -->
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>
