@@ -46,8 +46,8 @@ public class TestAsyncTask extends BaseActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MyAsyncTask1().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                new MyAsyncTask2().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//                new MyAsyncTask1().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                new MyAsyncTask2().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,100);
 //                new MyAsyncTask3().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
         });
@@ -81,11 +81,13 @@ public class TestAsyncTask extends BaseActivity {
 
     }
 
-    class MyAsyncTask2 extends AsyncTask<Void, Integer, SparseArray<String>> {
+    class MyAsyncTask2 extends MyAsyncTask<Integer, Integer, SparseArray<String>> {
         @Override
-        protected SparseArray<String> doInBackground(Void... params) {
+        protected SparseArray<String> doInBackground(Integer... params) {
             sparseArray = new SparseArray<>();
-            for (int i = 0; i < 20; i++) {
+
+
+            for (int i = params[0]+0; i < 20+params[0]; i++) {
                 publishProgress(i);
                 try {
                     Thread.sleep(500);
@@ -103,10 +105,18 @@ public class TestAsyncTask extends BaseActivity {
         }
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            tv2.setText("test renlei myasyntask");
+        }
+
+        @Override
         protected void onProgressUpdate(Integer... values) {
             tv2.setText(values[0] + "");
         }
     }
+
+
 
     class MyAsyncTask3 extends AsyncTask<Void, Integer, ArrayMap<String, String>> {
         @TargetApi(Build.VERSION_CODES.KITKAT)

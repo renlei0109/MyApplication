@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Layout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,13 +42,18 @@ public class ChooseEmailDialog extends Dialog {
     }
 
     private ChooseEmailDialog(Context context, int themeResId) {
+
         super(context, themeResId);
+        Log.d("ChooseEmailDialog","ChooseEmailDialog");
         this.mContext = context;
         mRootView = LayoutInflater.from(mContext).inflate(R.layout.choose_email_dialog_layout, null);
         init();
+
     }
 
     private void init() {
+        Log.d("ChooseEmailDialog","init");
+
         mListView = (ListView) mRootView.findViewById(R.id.choose_email_dialog_listview);
         mTitleTV = (TextView) mRootView.findViewById(R.id.choose_email_dialog_title_tv);
     }
@@ -68,8 +74,10 @@ public class ChooseEmailDialog extends Dialog {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("ChooseEmailDialog","oncreate");
         super.onCreate(savedInstanceState);
-        setContentView(mRootView,new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        setContentView(mRootView,new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        setContentView(mRootView);
 
     }
 

@@ -19,7 +19,7 @@ import com.example.renlei.myapplication.MyApplication;
 public class SqliteCache {
     private static final String TAG = "SqliteCache";
     private static final String DB_NAME = "renlei";
-    private static int DB_VERSION = 4;
+    private static int DB_VERSION = 6;
 
 
 
@@ -66,7 +66,10 @@ public class SqliteCache {
             Log.d(TAG,"oldVersion"+oldVersion+"newVersion"+newVersion);
             for (int v = oldVersion;v<=newVersion;v++){
                 switch (v){
-                    case 2:
+                    case 5:
+                        updateTo2(db);
+                        break;
+                    case 6:
                         updateTo2(db);
                         break;
                 }
@@ -74,7 +77,7 @@ public class SqliteCache {
         }
 
         private void updateTo2(SQLiteDatabase db){
-            String reNameA = "alter table lei_table rename to temp_lei_table";
+            /*String reNameA = "alter table lei_table rename to temp_lei_table";
             db.execSQL(reNameA);
             String createNewA = "create table if not exists lei_table(id int,content varchar,newcl varchar,test text,test2 varchar)";
             db.execSQL(createNewA);
@@ -82,6 +85,9 @@ public class SqliteCache {
             db.execSQL(copy);
             String delTemp = "drop table if exists temp_lei_table";
             db.execSQL(delTemp);
+            Log.d(TAG,"升级成功");*/
+            String addColumn = "alter table lei_table ADD  aaaaaaa text";
+            db.execSQL(addColumn);
             Log.d(TAG,"升级成功");
         }
     }
