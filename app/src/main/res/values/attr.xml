@@ -13,4 +13,8 @@
         <attr name="pb_progress_color" format="color"/>
         <attr name="pb_max_progress" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference"/>
+        <attr name="paused" format="boolean"/>
+    </declare-styleable>
 </resources>

@@ -82,6 +82,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_asynctask_activity).setOnClickListener(this);
         findViewById(R.id.test_imageload_activity).setOnClickListener(this);
         findViewById(R.id.test_dialog).setOnClickListener(this);
+        findViewById(R.id.test_gif).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -253,6 +254,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_dialog:
                 onDialogclick();
+                break;
+            case R.id.test_gif:
+                startActivity(new Intent(this, TestGifViewActivity.class));
                 break;
         }
 
