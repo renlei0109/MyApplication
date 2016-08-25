@@ -2,8 +2,6 @@ package com.example.renlei.myapplication.titlebar;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,10 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.renlei.myapplication.R;
-import com.example.renlei.myapplication.titlebar.ITitleBar;
-import com.example.renlei.myapplication.titlebar.MyTitleBar;
-
-import viewutil.TitleBar;
 
 public class BaseActivity extends Activity implements ITitleBar{
     private MyTitleBar mTitlebar;

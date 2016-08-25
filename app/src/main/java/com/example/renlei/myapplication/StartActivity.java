@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.renlei.myapplication.Cache.TestCacheActivity;
 import com.example.renlei.myapplication.animation.AnimationMainActivity;
 import com.example.renlei.myapplication.anr.TestANRActivity;
+import com.example.renlei.myapplication.badge.TestBadge;
 import com.example.renlei.myapplication.baseandroid.BaseAndroidActivity;
 import com.example.renlei.myapplication.chart.ActRotate;
 import com.example.renlei.myapplication.chart.LineChartActivity;
@@ -83,6 +84,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_imageload_activity).setOnClickListener(this);
         findViewById(R.id.test_dialog).setOnClickListener(this);
         findViewById(R.id.test_gif).setOnClickListener(this);
+        findViewById(R.id.test_badge).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
 
@@ -257,6 +259,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_gif:
                 startActivity(new Intent(this, TestGifViewActivity.class));
+                break;
+            case R.id.test_badge:
+                startActivity(new Intent(this, TestBadge.class));
                 break;
         }
 

@@ -28,5 +28,12 @@
     <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
         <item name="fontPath">fonts/RobotoCondensed-Regular.ttf</item>
     </style>
+    <style name="MyAppTheme" parent="@android:style/Theme.NoTitleBar">
+        <!-- you should set typeface which you want to override with TypefaceUtil -->
+        <!--<item name="fontPath">fonts/SF_Regular.otf</item>-->
+        <!--<item name="colorPrimary">@color/black</item>-->
+        <!--<item name="colorPrimaryDark">@color/black</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    </style>
 
 </resources>
