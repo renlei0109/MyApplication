@@ -44,7 +44,6 @@ import viewutil.RoundImageView;
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
     private String TAG = "StartActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
