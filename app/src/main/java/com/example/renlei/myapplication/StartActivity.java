@@ -30,6 +30,8 @@ import com.example.renlei.myapplication.pullrefresh.listview.PullRefreshActivity
 import com.example.renlei.myapplication.pullrefresh.listview.PullToRereshListViewActivity;
 import com.example.renlei.myapplication.pullrefresh.listview.TestListVIewEmptyView;
 import com.example.renlei.myapplication.recycleview.TestRecycleViewActivty;
+import com.example.renlei.myapplication.rxjava.RXBus;
+import com.example.renlei.myapplication.rxjava.RxJavaBaseActivity;
 import com.example.renlei.myapplication.service.MyServiceClientActivty;
 import com.example.renlei.myapplication.service.aidltest.MyAIDLServiceTestActivity;
 import com.example.renlei.myapplication.thread.ThreadPoolExecutorTestActivity;
@@ -38,12 +40,15 @@ import com.example.renlei.myapplication.titlebar.TestTitleBarActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.Subscription;
+import rx.functions.Action1;
 import viewutil.ChooseEmailDialog;
 import viewutil.RoundImageView;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
     private String TAG = "StartActivity";
+    Subscription sb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +89,19 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_dialog).setOnClickListener(this);
         findViewById(R.id.test_gif).setOnClickListener(this);
         findViewById(R.id.test_badge).setOnClickListener(this);
+        findViewById(R.id.test_rxjava).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
-
+        sb =  RXBus.getInstance().toObserverable().subscribe(new Action1<Object>() {
+            @Override
+            public void call(Object o) {
+                if (o instanceof  Intent){
+                    Intent intent = (Intent)o;
+                    String key = intent.getStringExtra("key");
+                    Log.d("StartActivity----",key+"------------------");
+                }
+            }
+        });
     }
 
     @Override
@@ -98,6 +113,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (sb.isUnsubscribed())
+            sb.unsubscribe();
         Log.e(TAG, "onDestroy");
     }
 
@@ -261,6 +278,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_badge:
                 startActivity(new Intent(this, TestBadge.class));
+                break;
+            case R.id.test_rxjava:
+                startActivity(new Intent(this, RxJavaBaseActivity.class));
                 break;
         }
 

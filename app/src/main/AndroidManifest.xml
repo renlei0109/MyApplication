@@ -99,6 +99,7 @@
         <activity android:name=".imageload.myimageload.TestMyImageLoadActivity"/>
         <activity android:name=".TestGifViewActivity"/>
         <activity android:name=".badge.TestBadge"/>
+        <activity android:name=".rxjava.RxJavaBaseActivity"/>
     </application>
 
 </manifest>
