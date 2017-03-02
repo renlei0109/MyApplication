@@ -13,7 +13,7 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/default_head_image"
+        android:icon="@drawable/at_office"
         android:label="My Application"
         android:theme="@style/AppTheme" >
         <activity
@@ -100,6 +100,7 @@
         <activity android:name=".TestGifViewActivity"/>
         <activity android:name=".badge.TestBadge"/>
         <activity android:name=".rxjava.RxJavaBaseActivity"/>
+        <activity android:name=".TestCircleViewActivity"/>
     </application>
 
 </manifest>

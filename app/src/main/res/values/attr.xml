@@ -17,4 +17,8 @@
         <attr name="gif" format="reference"/>
         <attr name="paused" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="CircleWaveView">
+        <attr name="wave_color" format="color"/>
+        <attr name="wave_width" format="dimension"/>
+    </declare-styleable>
 </resources>

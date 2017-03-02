@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 
+import com.example.renlei.baseutillib.SceneLogUtil;
+import com.example.renlei.baseutillib.Test;
 import com.example.renlei.myapplication.Cache.TestCacheActivity;
 import com.example.renlei.myapplication.animation.AnimationMainActivity;
 import com.example.renlei.myapplication.anr.TestANRActivity;
@@ -90,6 +92,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_gif).setOnClickListener(this);
         findViewById(R.id.test_badge).setOnClickListener(this);
         findViewById(R.id.test_rxjava).setOnClickListener(this);
+        findViewById(R.id.test_circlewaveview).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
         sb =  RXBus.getInstance().toObserverable().subscribe(new Action1<Object>() {
@@ -169,6 +172,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.view_num:
                 startActivity(new Intent(this, NumViewActivity.class));
+                Test test = new Test();
+                test.test2test2();
                 break;
             case R.id.line_pie_chart_view:
                 startActivity(new Intent(this, PiechartActivityOld.class));
@@ -282,6 +287,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             case R.id.test_rxjava:
                 startActivity(new Intent(this, RxJavaBaseActivity.class));
                 break;
+            case R.id.test_circlewaveview:
+                startActivity(new Intent(this,TestCircleViewActivity.class));
+                break;
         }
 
     }
@@ -305,4 +313,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         builder.create().show();
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
 }

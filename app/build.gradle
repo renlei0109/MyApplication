@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.renlei.myapplication"
-        minSdkVersion 14
-        targetSdkVersion 14
+        minSdkVersion 15
+        targetSdkVersion 119
         versionCode 1
         versionName "1.0"
     }
@@ -43,4 +43,6 @@ dependencies {
     ///rxjava
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
+
+    compile 'com.github.renlei0109:testjitpack_compnation:1.1.9'
 }

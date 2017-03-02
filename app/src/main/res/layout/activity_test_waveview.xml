@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_wave"
+        android:text="开始动画"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/receive_wave"
+        android:text="接收声音"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stop_wave"
+        android:text="停止"/>
+    <!--<viewutil.CircleWaveView2
+        android:layout_below="@id/start_wave"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:wave_width="1dp"
+        app:wave_color="@android:color/darker_gray"
+        android:id="@+id/circleWaveView"
+        />-->
+    <!--<viewutil.AudioRecordView
+        android:id="@+id/audio_record_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"></viewutil.AudioRecordView>-->
+    <include
+        android:id="@+id/wave"
+        layout="@layout/view_audio_record_waveview"/>
+</LinearLayout>
+    <!--app:wave_color="@color/gateway_green"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_gravity="center_horizontal"-->
