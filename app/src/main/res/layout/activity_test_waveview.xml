@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/start_wave"
+            android:text="开始动画"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/receive_wave"
+            android:text="接收声音"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/stop_wave"
+            android:text="停止"
+            />
+        <include
+            android:id="@+id/wave"
+            layout="@layout/view_audio_record_waveview"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/start_wave"
-        android:text="开始动画"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/receive_wave"
-        android:text="接收声音"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/stop_wave"
-        android:text="停止"/>
     <!--<viewutil.CircleWaveView2
         android:layout_below="@id/start_wave"
         android:layout_width="120dp"
@@ -32,10 +42,38 @@
         android:id="@+id/audio_record_view"
         android:layout_width="120dp"
         android:layout_height="120dp"></viewutil.AudioRecordView>-->
-    <include
-        android:id="@+id/wave"
-        layout="@layout/view_audio_record_waveview"/>
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-30dp"
+        >
+        <include
+            layout="@layout/mi_brain_wave_view"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentBottom="true"
+            />
+        <include
+            android:id="@+id/wave2"
+            layout="@layout/view_audio_record_waveview2"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/test_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <!--<viewutil.mibrainwaveview.MiBrainWaveView
+        android:layout_width="250dp"
+        android:layout_height="250dp"></viewutil.mibrainwaveview.MiBrainWaveView>-->
+</RelativeLayout>
     <!--app:wave_color="@color/gateway_green"-->
     <!--android:layout_centerHorizontal="true"-->
     <!--android:layout_gravity="center_horizontal"-->

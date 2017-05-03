@@ -6,4 +6,5 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="gateway_green">#00C193</color>
+    <color name="mi_brain_circle_view_green">#1A00bc9c</color>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<viewutil.mibrainwaveview.MiBrainWaveView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/mi_brain_wave_view">
+    <RelativeLayout
+        android:id="@+id/mi_brain_wave_view_listening_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <viewutil.mibrainwaveview.CircleView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true" />
+
+        <viewutil.mibrainwaveview.CircleView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true" />
+
+        <viewutil.mibrainwaveview.CircleView
+            android:id="@+id/mi_brain_circle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+        <viewutil.mibrainwaveview.CircleView
+            android:id="@+id/mi_brain_circle_view_ring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mi_brain_voice_icon"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/mi_brain_wave_view_normal_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/mi_brain_float_view_press"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+</viewutil.mibrainwaveview.MiBrainWaveView>

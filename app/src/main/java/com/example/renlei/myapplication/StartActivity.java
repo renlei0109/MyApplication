@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 
-import com.example.renlei.baseutillib.SceneLogUtil;
 import com.example.renlei.baseutillib.Test;
 import com.example.renlei.myapplication.Cache.TestCacheActivity;
 import com.example.renlei.myapplication.animation.AnimationMainActivity;
@@ -45,7 +44,7 @@ import java.util.List;
 import rx.Subscription;
 import rx.functions.Action1;
 import viewutil.ChooseEmailDialog;
-import viewutil.RoundImageView;
+import viewutil.mibrainwaveview.TestCircleViewActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;

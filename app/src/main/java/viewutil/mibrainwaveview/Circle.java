@@ -1,4 +1,4 @@
-package viewutil;
+package viewutil.mibrainwaveview;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -10,10 +10,10 @@ import android.graphics.Paint;
  */
 
 public class Circle {
-    int x;
-    int y;
-    Paint paint;
-    int radius;
+    public int x;
+    public int y;
+    public Paint paint;
+    public int radius;
 
     public void resetSizeRadiusAndAlpha(int radius,int alpha,boolean isLast){
         this.radius += radius;

@@ -100,7 +100,7 @@
         <activity android:name=".TestGifViewActivity"/>
         <activity android:name=".badge.TestBadge"/>
         <activity android:name=".rxjava.RxJavaBaseActivity"/>
-        <activity android:name=".TestCircleViewActivity"/>
+        <activity android:name="viewutil.mibrainwaveview.TestCircleViewActivity"/>
     </application>
 
 </manifest>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<viewutil.AudioRecordView
+<viewutil.mibrainwaveview.MiBrainAudioRecordView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="120dp"
-    android:layout_height="120dp">
+    android:layout_width="250dp"
+    android:layout_height="250dp">
 
     <ImageView
         android:id="@+id/audio_record_iv"
@@ -11,15 +11,16 @@
         android:layout_height="40dp"
         android:src="@drawable/icon_voice2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
-    <viewutil.CircleWaveView2
+    <viewutil.mibrainwaveview.MiBrainCircleWaveView
         android:id="@+id/wave_view"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:wave_width="1dp"
         app:wave_color="@android:color/darker_gray"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-</viewutil.AudioRecordView>
+</viewutil.mibrainwaveview.MiBrainAudioRecordView>

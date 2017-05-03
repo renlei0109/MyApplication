@@ -1,4 +1,4 @@
-package viewutil;
+package viewutil.mibrainwaveview;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -19,8 +19,6 @@ import com.example.renlei.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import viewutil.mibrainwaveview.Circle;
-
 /**
  * Time 2017/2/22.
  * User renlei
@@ -28,7 +26,7 @@ import viewutil.mibrainwaveview.Circle;
  * 实现水波纹的效果
  */
 
-public class CircleWaveView2 extends View {
+public class MiBrainCircleWaveView extends View {
     private Context mContext;
     private Paint mPaint;
     private int mWaveColor;
@@ -38,23 +36,23 @@ public class CircleWaveView2 extends View {
     private int x;
     private int y;
     private final int CHANGE_COUNT = 20;//多少次改变完
-    private boolean drawCircle = true;//判断是画圆，还是在快要结束的时候画弧形
+    private boolean drawCircle = false;//判断是画圆，还是在快要结束的时候画弧形
     private int progress = 30;
     List<Circle> circles = new ArrayList<>();
     Canvas mCanvas;
-    public CircleWaveView2(Context context) {
+    public MiBrainCircleWaveView(Context context) {
         super(context);
         mContext = context;
         initView(null);
     }
 
-    public CircleWaveView2(Context context, AttributeSet attrs) {
+    public MiBrainCircleWaveView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         initView(attrs);
     }
 
-    public CircleWaveView2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MiBrainCircleWaveView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
         initView(attrs);
@@ -77,8 +75,8 @@ public class CircleWaveView2 extends View {
             height = (int) (heightSpec + getPaddingTop() + getPaddingBottom() + mWaveWidth);
         }
         int circleWidth = Math.max(width, height);
-        radius = (int) (Math.min(widthSpec, heightSpec) / 2 - mWaveWidth / 2) / 2;
-        radius = (int) (Math.min(widthSpec, heightSpec) / 2 - mWaveWidth / 2) / 2;
+//        radius = dip2px(30);
+        radius = (int) (Math.max(widthSpec, heightSpec) / 2 - mWaveWidth / 2) / 2;
 
         setMeasuredDimension(circleWidth, circleWidth);
     }
@@ -91,7 +89,7 @@ public class CircleWaveView2 extends View {
         mPaint = new Paint();
         // 抗锯齿
         mPaint.setAntiAlias(true);
-        mPaint.setColor(mWaveColor);
+        mPaint.setColor(getResources().getColor(R.color.gateway_green));
         mPaint.setStrokeWidth(mWaveWidth);
         // 设置空心
         mPaint.setStyle(Paint.Style.STROKE);
@@ -108,7 +106,7 @@ public class CircleWaveView2 extends View {
         y = getMeasuredHeight() / 2;
         if (drawCircle){
             canvas.drawCircle(x, y, radius, mPaint);///这个是一直存在在那里的圆
-        }else {
+        }/*else {
             Paint paint = new Paint();
             paint.setStrokeWidth(10);
             paint.setAntiAlias(true);//使用抗锯齿功能
@@ -117,10 +115,10 @@ public class CircleWaveView2 extends View {
 //            final RectF oval = new RectF(0+mWaveWidth/2, y-radius, getWidth()-mWaveWidth/2, y+radius);
             RectF oval = new RectF(x - radius, x - radius, x + radius, x + radius);
 
-            /*final RectF oval = new RectF(10, 10, 100
-                    , 100);;*/
+            *//*final RectF oval = new RectF(10, 10, 100
+                    , 100);;*//*
             canvas.drawArc(oval, -230, progress * 360 / 100, false, mPaint);
-        }
+        }*/
         Log.d("CircleWaveView", "onDraw " +"getAlpha："+mPaint.getAlpha()+" radius："+radius+" drawCircle："+drawCircle+"  progress："+progress);
         for (int i = 0; i < circles.size(); i++) {
             if (circles.get(i).paint.getAlpha()>0){
@@ -174,8 +172,8 @@ public class CircleWaveView2 extends View {
     /**
      * 收到声音添加circle
      */
-    public void addCircle() {
-        final Circle circle = new Circle(x, y, mPaint, radius);
+    public void addCircle(int startRadius) {
+        final Circle circle = new Circle(x, y, mPaint, startRadius);
         circles.add(circle);
         new Thread(new Runnable() {
             @Override
@@ -198,19 +196,19 @@ public class CircleWaveView2 extends View {
             }
         }).start();
     }
-    EnterThread enterThread ;
+//    EnterThread enterThread ;
     /**
      * 进入录音状态
      */
     public void enterRecordStatus(){
         drawCircle = true;
-        enterThread = new EnterThread();
+//        enterThread = new EnterThread();
         mPaint.setColor(getResources().getColor(R.color.gateway_green));
         postInvalidate();
-        enterThread.start();
+//        enterThread.start();
     }
 
-    class EnterThread extends Thread{
+   /* class EnterThread extends Thread{
         private boolean stop = true;
         @Override
         public void run() {
@@ -227,16 +225,14 @@ public class CircleWaveView2 extends View {
         public void stopThread(){
             this.stop = false;
         }
-    }
+    }*/
 
 
     /**
      * 退出录音状态
      */
     public void exitRecordStatus(boolean showAnimation){
-        if (enterThread != null && enterThread.isAlive()){
-            enterThread.stopThread();//关闭之前的自动创建的线程
-        }
+
         mPaint.setColor(Color.GRAY);
         if (showAnimation){
             drawCircle = false;//让其去划圆弧
@@ -272,5 +268,8 @@ public class CircleWaveView2 extends View {
 
     }
 
-
+    private int dip2px(float dpValue) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 }
