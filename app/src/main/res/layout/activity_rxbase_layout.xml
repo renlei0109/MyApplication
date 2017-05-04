@@ -24,6 +24,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="example4" />
+    <Button
+        android:id="@+id/start_rxexample5_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="example5" />
+    <Button
+        android:id="@+id/start_rxexample6_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="example6" />
+    <Button
+        android:id="@+id/start_rxexample7_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="example7_github_username" />
     <TextView
         android:id="@+id/rx_text"
         android:layout_width="match_parent"
