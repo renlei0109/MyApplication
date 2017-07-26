@@ -46,8 +46,8 @@
             android:name=".SurfaceViewTestActivity"
             android:label="@string/title_activity_surface_view_test" />
         <activity android:name=".CameraAnimationActivity" />
-
-        <service
+        <activity android:name=".GetProductorInfoActivity"/>
+        <!--<service
             android:name=".service.MyService"
             android:exported="true"
             android:process=":com.example.renlei.myapplication.service" >
@@ -56,7 +56,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </service>
+        </service>-->
 
         <activity android:name=".service.MyServiceClientActivty"
             android:process=":MyServiceClientActivty"/>

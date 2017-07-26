@@ -92,6 +92,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_badge).setOnClickListener(this);
         findViewById(R.id.test_rxjava).setOnClickListener(this);
         findViewById(R.id.test_circlewaveview).setOnClickListener(this);
+        findViewById(R.id.test_get_pro_ifno).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
         sb =  RXBus.getInstance().toObserverable().subscribe(new Action1<Object>() {
@@ -288,6 +289,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.test_circlewaveview:
                 startActivity(new Intent(this,TestCircleViewActivity.class));
+                break;
+            case R.id.test_get_pro_ifno:
+                startActivity(new Intent(this,GetProductorInfoActivity.class));
                 break;
         }
 

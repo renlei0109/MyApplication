@@ -62,14 +62,14 @@ public class MyService extends Service{
 
     @Override
     public void onDestroy() {
-        Log.d("MyService", "MyService -> onDestroy");
+        Log.e("MyService", "MyService -> onDestroy");
         clientMessenger = null;
         super.onDestroy();
     }
     @Override
     public void onCreate() {
-        Log.i("MyService", "MyService -> onCreate");
-        Log.d("MyService", "android.os.Process.myPid();" + android.os.Process.myPid());
+        Log.e("MyService", "MyService -> onCreate");
+        Log.e("MyService", "android.os.Process.myPid();" + android.os.Process.myPid());
 
         super.onCreate();
     }

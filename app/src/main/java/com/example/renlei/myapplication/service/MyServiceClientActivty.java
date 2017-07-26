@@ -14,6 +14,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.renlei.myapplication.R;
 import com.example.renlei.myapplication.titlebar.BaseActivity;
@@ -27,6 +28,7 @@ import com.example.renlei.myapplication.titlebar.BaseActivity;
 public class MyServiceClientActivty extends BaseActivity {
     private Button bindBtn;
     private Button unbindBtn;
+    private Button mActivityBtn;
     private String SERVICE_ACTION = "com.renlei.MyService";
 
     private static final int SEND_MESSAGE_CODE = 0x0001;
@@ -44,12 +46,12 @@ public class MyServiceClientActivty extends BaseActivity {
     private class ClientHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            Log.d("MyServiceClientActivty", "ClientHandler -> handleMessage");
+            Log.e("MyServiceClientActivty", "ClientHandler -> handleMessage");
             if (msg.what == RECEIVE_MESSAGE_CODE) {
                 Bundle data = msg.getData();
                 if (data != null) {
                     String str = data.getString("msg");
-                    Log.d("MyServiceClientActivty", "客户端收到Service的消息: " + str);
+                    Log.e("MyServiceClientActivty", "客户端收到Service的消息: " + str);
 
                 }
                 /*serviceMessenger = msg.replyTo;
@@ -64,7 +66,7 @@ public class MyServiceClientActivty extends BaseActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             //客户端与Service建立连接
-            Log.d("MyService", "客户端 onServiceConnected");
+            Log.e("MyService", "客户端 onServiceConnected");
             serviceMessenger = new Messenger(service);
             Message msg = Message.obtain();
             msg.what = SEND_MESSAGE_CODE;
@@ -72,8 +74,9 @@ public class MyServiceClientActivty extends BaseActivity {
             bundle.putString("msg", "这里是客户端");
             msg.setData(bundle);
             msg.replyTo = clientMessenger;
+            isBound = true;
             try {
-                Log.d("MyService", "客户端向service发送信息");
+                Log.e("MyService", "客户端向service发送信息");
                 serviceMessenger.send(msg);
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -85,7 +88,7 @@ public class MyServiceClientActivty extends BaseActivity {
             //客户端与Service失去连接
             serviceMessenger = null;
             isBound = false;
-            Log.d("DemoLog", "客户端 onServiceDisconnected");
+            Log.e("DemoLog", "客户端 onServiceDisconnected");
         }
     };
 
@@ -93,11 +96,12 @@ public class MyServiceClientActivty extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myserviceclient_layout);
-        Log.d("MyServiceClientActivty", "android.os.Process.myPid();"+android.os.Process.myPid());
+        Log.e("MyServiceClientActivty", "android.os.Process.myPid();"+android.os.Process.myPid());
 
 
         bindBtn = (Button) findViewById(R.id.bind_btn);
         unbindBtn = (Button) findViewById(R.id.unbind_btn);
+        mActivityBtn = (Button)findViewById(R.id.activity_btn);
         bindBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,17 +109,32 @@ public class MyServiceClientActivty extends BaseActivity {
                     Intent intent = new Intent();
                     intent.setAction(SERVICE_ACTION);
                     intent.addCategory(Intent.CATEGORY_DEFAULT);
-
+                    intent.setComponent(new ComponentName("com.xiaomi.smarthome.auth","com.xiaomi.smarthome.auth.MyService"));
                     PackageManager packageManager = getPackageManager();
                     ResolveInfo info = packageManager.resolveService(intent,0);
                     if (info!=null){
                         String packname = info.serviceInfo.packageName;
                         String serviceName = info.serviceInfo.name;
-
+                        Intent bindIntent = new Intent();
+//                        ComponentName componentName = new ComponentName(packname,serviceName);
                         ComponentName componentName = new ComponentName(packname,serviceName);
                         intent.setComponent(componentName);
-                        Log.d("MyServiceClientActivty", "客户端调用bindService方法");
-                        bindService(intent,connection,BIND_AUTO_CREATE);
+//                        intent.setClassName(packname,serviceName);
+//                        intent.setPackage(packname);
+                        Log.e("MyServiceClientActivty", "客户端调用bindService方法");
+                        boolean result = false;
+                        try {
+//                            startService(intent);
+//                            startActivity(intent);
+                            result = getApplicationContext().bindService(intent,connection,BIND_AUTO_CREATE);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("MyServiceClientActivty", "e:"+e.getMessage()+"---"+e.getStackTrace());
+
+
+                        }
+                        Toast.makeText(MyServiceClientActivty.this,"result:"+result,Toast.LENGTH_SHORT).show();
+                        Log.e("MyServiceClientActivty", "result:"+result);
 
                     }
                 }
@@ -126,10 +145,32 @@ public class MyServiceClientActivty extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if(isBound){
-                    Log.d("MyServiceClientActivty", "客户端调用unbindService方法");
-                    unbindService(connection);
+                    Log.e("MyServiceClientActivty", "客户端调用unbindService方法");
+                    getApplicationContext().unbindService(connection);
+                    isBound = false;
                 }
             }
         });
+        mActivityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent intent = new Intent();
+                intent.setAction("com.xiaomi.smarthome.auth.action.authactivity");
+                PackageManager packageManager = getPackageManager();
+                ResolveInfo info = packageManager.resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY);
+                if (info != null){
+                    startActivity(intent);
+                }else {
+                    Log.e("MyServiceClientActivty", "没有找到activity");
+                }*/
+                Intent intent = new Intent();
+                ComponentName componentName = new ComponentName("com.xiaomi.smarthome.auth","com.xiaomi.smarthome.auth.MainActivity");
+                intent .setComponent(componentName);
+                startActivity(intent);
+
+            }
+        });
     }
+
+
 }
