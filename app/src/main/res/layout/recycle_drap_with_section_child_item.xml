@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="70dp"
+    android:orientation="vertical"
+    android:background="@android:color/holo_blue_bright">
+    <TextView
+        android:id="@+id/recycle_view_child_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jfdslkjfld"
+        android:padding="20dp"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>

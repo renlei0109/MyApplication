@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="fontPath">fonts/SF_Regular.otf</item>
     </style>
+
     <style name="TextAppearance.FontPath" parent="android:TextAppearance">
         <!-- Custom Attr-->
         <item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>
@@ -25,9 +26,11 @@
         <item name="android:windowCloseOnTouchOutside">false</item>
         <!-- <item name="android:windowCloseOnTouchOutside">true</item> -->
     </style>
+
     <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
         <item name="fontPath">fonts/RobotoCondensed-Regular.ttf</item>
     </style>
+
     <style name="MyAppTheme" parent="@android:style/Theme.NoTitleBar">
         <!-- you should set typeface which you want to override with TypefaceUtil -->
         <!--<item name="fontPath">fonts/SF_Regular.otf</item>-->
@@ -35,5 +38,14 @@
         <!--<item name="colorPrimaryDark">@color/black</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -10,4 +10,5 @@
     <string name="title_activity_surface_view_test">SurfaceViewTestActivity</string>
     <string name="title_activity_pull_to_reresh_list_view">PullToRereshListView</string>
     <string name="title_activity_gctest">GCTest</string>
+    <string name="title_activity_advance_recycleview">AdvanceRecycleview</string>
 </resources>

@@ -336,6 +336,17 @@
             fontPath="fonts/SF_Regular.otf"
             />
 
+        <Button
+            android:id="@+id/advance_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="advance_recycleview"
+            tools:ignore="MissingPrefix"
+            android:textAllCaps="false"
+            fontPath="fonts/SF_Regular.otf"
+            />
+
 
 
 
