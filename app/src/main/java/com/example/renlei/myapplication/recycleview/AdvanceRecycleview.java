@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.renlei.myapplication.R;
 import com.example.renlei.myapplication.recycleview.advancerecycleview.recycledragwithsection.RecycleviewDrapWithSection;
+import com.example.renlei.myapplication.recycleview.advancerecycleview.recycledragwithsection.ScrollViewExpandableListview;
 
 public class AdvanceRecycleview extends Activity {
 
@@ -22,6 +23,13 @@ public class AdvanceRecycleview extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdvanceRecycleview.this, RecycleviewDrapWithSection.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.expand_listview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(AdvanceRecycleview.this,ScrollViewExpandableListview.class);
                 startActivity(intent);
             }
         });

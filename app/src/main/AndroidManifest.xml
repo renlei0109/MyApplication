@@ -110,6 +110,8 @@
             android:name=".recycleview.AdvanceRecycleview"
             android:label="@string/title_activity_advance_recycleview"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".recycleview.advancerecycleview.recycledragwithsection.ScrollViewExpandableListview"/>
     </application>
 
 </manifest>

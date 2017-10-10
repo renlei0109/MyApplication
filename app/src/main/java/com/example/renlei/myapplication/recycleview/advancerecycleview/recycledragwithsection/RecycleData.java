@@ -39,13 +39,13 @@ public class RecycleData {
     public List<Pair<GroupData, List<ChildData>>> getData() {
         List<Pair<GroupData, List<ChildData>>> data = new ArrayList<>();
         data.add(getPair("通用",0));
-        for (int i = 0;i<5;i++){
+        for (int i = 0;i<2;i++){
             data.add(getPair("设备"+i,1));
         }
 
         data.add(getPair("可以选择的设备",0));
 
-        for (int i = 5;i<15;i++){
+        for (int i = 5;i<6;i++){
             data.add(getPair("设备"+i,2));
         }
         return data;

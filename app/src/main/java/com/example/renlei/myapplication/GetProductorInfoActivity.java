@@ -1,8 +1,11 @@
 package com.example.renlei.myapplication;
 
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -37,10 +40,45 @@ public class GetProductorInfoActivity extends BaseActivity{
         findViewById(R.id.get_info).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("GetProductorInfoActivity","result"+new OSUtils().isEMUI()+"&&&"+new OSUtils().isFlyme());
+//                Log.e("GetProductorInfoActivity","result"+new OSUtils().isEMUI()+"&&&"+new OSUtils().isFlyme());
+                loadPhoneStatus();
             }
         });
     }
+
+    private void loadPhoneStatus()
+    {
+        TelephonyManager phoneMgr=(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+        StringBuilder sb = new StringBuilder();
+        sb.append(Build.MODEL).append("\n").append(Build.VERSION.RELEASE);
+        tv.setText(sb.toString());
+//        txtPhoneModel.setText(); //手机型号
+//        txtPhoneNumber.setText(phoneMgr.getLine1Number());//本机电话号码
+//        txtSdkVersion.setText(Build.VERSION.SDK);//SDK版本号
+//        txtOsVersion.setText(Build.VERSION.RELEASE);//Firmware/OS 版本号
+
+        MediaPlayer player = new MediaPlayer();
+        try {
+
+            String parentPath = Environment.getExternalStorageDirectory().getPath()+"/smarthome_record/";
+            File parentFile = new File(parentPath);
+            File[] chileFile = parentFile.listFiles();
+            for (int i = 0;i<chileFile.length;i++){
+                player.setDataSource(chileFile[i].getAbsolutePath());  //recordingFilePath（）为音频文件的路径
+                player.prepare();
+                double duration= player.getDuration();//获取音频的时间
+                Log.d("GetProductorInfoActivity",chileFile[i].getAbsolutePath()+ "### duration: " + duration);
+                player.release();//记得释放资源
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public class BuildProperties {
 

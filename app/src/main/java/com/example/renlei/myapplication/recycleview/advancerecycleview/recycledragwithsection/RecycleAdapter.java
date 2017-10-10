@@ -7,6 +7,8 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.renlei.myapplication.R;
@@ -79,7 +81,20 @@ public class RecycleAdapter extends AbstractExpandableItemAdapter<RecycleAdapter
 
     @Override
     public void onBindGroupViewHolder(ParentViewHolder holder, int groupPosition, int viewType) {
+        Log.d("RecyclerAdapter","onBindGroupViewHolder");
         holder.mTV.setText(mData.get(groupPosition).first.name);
+        holder.mLL.removeAllViews();
+        Log.d("RecyclerAdapter","removeAllViews");
+
+        for (int i = 0;i<1;i++){
+            Log.d("RecyclerAdapter","addView"+mData.get(groupPosition).first.name);
+            holder.mLL.addView(createView());
+        }
+        if (groupPosition == 1){
+            holder.mParentLL.setVisibility(View.GONE);
+        }else {
+            holder.mParentLL.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -108,10 +123,14 @@ public class RecycleAdapter extends AbstractExpandableItemAdapter<RecycleAdapter
         private int stateFlag;
         private View rootView;
         public TextView mTV;
+        LinearLayout mLL;
+        LinearLayout mParentLL;
         public ParentViewHolder( View rootView) {
             super(rootView);
             this.rootView = rootView;
             mTV = (TextView) rootView.findViewById(R.id.recycle_view_group_tv);
+            mLL = (LinearLayout) rootView.findViewById(R.id.lite_scene_icon_ll);
+            mParentLL = (LinearLayout) rootView.findViewById(R.id.parent_view);
         }
 
         @Override
@@ -123,6 +142,13 @@ public class RecycleAdapter extends AbstractExpandableItemAdapter<RecycleAdapter
         public int getExpandStateFlags() {
             return stateFlag;
         }
+    }
+
+    private View createView(){
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.recycle_imageview,null);
+        ImageView imageView = (ImageView) rootView.findViewById(R.id.iv);
+        imageView.setImageResource(R.drawable.std_scene_icon_push);
+        return rootView;
     }
 
 
@@ -167,7 +193,7 @@ public class RecycleAdapter extends AbstractExpandableItemAdapter<RecycleAdapter
     public ItemDraggableRange onGetGroupItemDraggableRange(ParentViewHolder holder, int groupPosition) {
         Log.d(TAG,"onGetGroupItemDraggableRange"+mData.size());
         if (mData.get(groupPosition).first.type == 1){
-            return new ItemDraggableRange(1,5);
+            return new ItemDraggableRange(1,mData.get(groupPosition).second.size());
         }else if (mData.get(groupPosition).first.type == 2){
             return new ItemDraggableRange(7,mData.size()-1);
         }

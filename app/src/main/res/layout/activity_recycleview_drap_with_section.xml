@@ -5,8 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.renlei.myapplication.recycleview.advancerecycleview.recycledragwithsection.RecycleviewDrapWithSection">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleview_drag_with_section"
+
+    <com.example.renlei.myapplication.recycleview.advancerecycleview.recycledragwithsection.HomeSceneScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/gateway_green" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleview_drag_with_section"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/gateway_green" />
+        </LinearLayout>
+
+    </com.example.renlei.myapplication.recycleview.advancerecycleview.recycledragwithsection.HomeSceneScrollView>
+
+    <FrameLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/transparent">
+        <View
+            android:id="@+id/title_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:alpha="0"/>
+        <ImageView
+            android:id="@+id/module_a_3_return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:scaleType="center" />
+
+        <TextView
+            android:id="@+id/module_a_3_return_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:text="智能推荐" />
+
+        <ImageView
+            android:id="@+id/module_a_3_right_iv_setting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:gravity="center"
+            android:scaleType="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
 </RelativeLayout>
