@@ -60,13 +60,21 @@ public class RecycleAdapter extends AbstractExpandableItemAdapter<RecycleAdapter
         return groupPosition;
     }
 
+   /* @Override
+    public long getChildId(int groupPosition, int childPosition) {
+//        return mData.get(groupPosition).second.get(childPosition).name.hashCode();
+        Log.d(TAG,"getchildId"+)
+        return mData.get(groupPosition).second.get(childPosition).name.hashCode();
+    }*/
+
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return mData.get(groupPosition).second.get(childPosition).name.hashCode();
+        return 0;
     }
 
     @Override
     public ParentViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
+        Log.d(TAG,"onCreateGroupViewHolder");
        View parentView = mInflate.inflate(R.layout.recycle_drap_with_section_group_item,null);
         ParentViewHolder holder = new ParentViewHolder(parentView);
         return holder;

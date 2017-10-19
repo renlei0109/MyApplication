@@ -6,26 +6,55 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.renlei.myapplication.recycleview.AdvanceRecycleview">
-    <Button
-        android:id="@+id/expand_with_section"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="advance_recycleview"
-        tools:ignore="MissingPrefix"
-        android:textAllCaps="false"
-        fontPath="fonts/SF_Regular.otf"
-        />
-    <Button
-        android:id="@+id/expand_listview"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="expand_listview"
-        tools:ignore="MissingPrefix"
-        android:textAllCaps="false"
-        fontPath="fonts/SF_Regular.otf"
-        android:layout_marginTop="50dp"
-        />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/expand_with_section"
+            fontPath="fonts/SF_Regular.otf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="advance_recycleview"
+            android:textAllCaps="false"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:id="@+id/expand_listview"
+            fontPath="fonts/SF_Regular.otf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="expand_listview"
+            android:textAllCaps="false"
+            tools:ignore="MissingPrefix" />
+        <Button
+            android:id="@+id/ptr_frame_layout_recyclerview"
+            fontPath="fonts/SF_Regular.otf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="ptr_frame_layout_recyclervieww"
+            android:textAllCaps="false"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:id="@+id/test_location"
+            fontPath="fonts/SF_Regular.otf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="test_location"
+            android:textAllCaps="false"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/location_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="定位结果：" />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

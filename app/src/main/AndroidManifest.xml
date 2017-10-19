@@ -10,7 +10,10 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FIND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARWAKE_LOCKSE_LOCATION" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -112,6 +115,7 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".recycleview.advancerecycleview.recycledragwithsection.ScrollViewExpandableListview"/>
+        <activity android:name=".pullrefresh.PtrFrameLayout.PtrFrameLayoutActivity"/>
     </application>
 
 </manifest>
