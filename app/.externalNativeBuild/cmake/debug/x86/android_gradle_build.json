@@ -1,0 +1,28 @@
+
+{
+	"buildFiles" : [ "D:/project/github/MyApplication/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"D:\\soft\\Andriod\\sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\project\\github\\MyApplication\\app\\.externalNativeBuild\\cmake\\debug\\x86 --target clean"
+	],
+	"libraries" : 
+	{
+		"native-lib-Debug-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "native-lib",
+			"buildCommand" : "D:\\soft\\Andriod\\sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\project\\github\\MyApplication\\app\\.externalNativeBuild\\cmake\\debug\\x86 --target native-lib",
+			"buildType" : "debug",
+			"output" : "D:/project/github/MyApplication/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so",
+			"toolchain" : "2079038309"
+		}
+	},
+	"toolchains" : 
+	{
+		"2079038309" : 
+		{
+			"cCompilerExecutable" : "D:/soft/Andriod/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/soft/Andriod/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

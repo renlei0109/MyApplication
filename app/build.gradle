@@ -10,6 +10,11 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
     }
     buildTypes {
         release {
@@ -17,6 +22,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    externalNativeBuild {
+//        cmake {
+//            path ""
+//        }
+//    }
     lintOptions {
         abortOnError false
     }
@@ -51,4 +61,5 @@ dependencies {
 
     compile 'com.github.renlei0109:testjitpack_compnation:1.1.9'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.mijia:auth:1.0'
 }
