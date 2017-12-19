@@ -7,6 +7,9 @@ buildscript {
 //            url "https://jitpack.io"
             url "http://10.231.33.225:8081/nexus/content/groups/com.renlei/"
         }
+        maven{
+            url "https://jitpack.io"
+        }
         mavenCentral()
 
 
