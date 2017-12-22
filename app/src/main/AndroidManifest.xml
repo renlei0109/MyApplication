@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_FIND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARWAKE_LOCKSE_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -120,6 +121,7 @@
         <activity android:name=".pullrefresh.PtrFrameLayout.PtrFrameLayoutActivity"/>
         <activity android:name=".jnindk.JniNdkMainActivity"/>
         <activity android:name=".jnindk.TestJniActivity"/>
+        <activity android:name=".AddShortCutActivity"/>
     </application>
 
 </manifest>

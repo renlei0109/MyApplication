@@ -346,6 +346,16 @@
             android:textAllCaps="false"
             fontPath="fonts/SF_Regular.otf"
             />
+        <Button
+            android:id="@+id/add_short_cut"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="add_short_cut"
+            tools:ignore="MissingPrefix"
+            android:textAllCaps="false"
+            fontPath="fonts/SF_Regular.otf"
+            />
 
 
 

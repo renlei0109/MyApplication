@@ -95,6 +95,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.test_circlewaveview).setOnClickListener(this);
         findViewById(R.id.test_get_pro_ifno).setOnClickListener(this);
         findViewById(R.id.advance_recycleview).setOnClickListener(this);
+        findViewById(R.id.add_short_cut).setOnClickListener(this);
         button = (Button) findViewById(R.id.test_round_progressbar_activty);
         button.setTypeface(typeface);
         sb =  RXBus.getInstance().toObserverable().subscribe(new Action1<Object>() {
@@ -297,6 +298,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.advance_recycleview:
                 startActivity(new Intent(this,AdvanceRecycleview.class));
+                break;
+            case R.id.add_short_cut:
+                startActivity(new Intent(this,AddShortCutActivity.class));
                 break;
         }
 
